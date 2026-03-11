@@ -306,7 +306,8 @@
         <div class="hero-tag">// open data endpoint</div>
         <h1>My website.<br/><em>Your UI.</em></h1>
         <p>All the content from this site is available as a single JSON&nbsp;endpoint.</p>
-        <p>Fetch it, shape it, style it however you want.</p>
+        <p>Fetch it, shape it, style it however you want.</p><br/>
+        <p>Don't bother me with frontends. I'm a backend fundamentalist.</p>
       </div>
     </section>
 
@@ -356,24 +357,13 @@
       <div class="wrap">
         <div class="section-label">// usage</div>
         <div class="tabs">
-          <button class="tab" onclick="switchTab('js', this)">JavaScript</button>
           <button class="tab active" onclick="switchTab('python', this)">Python</button>
+          <button class="tab" onclick="switchTab('rust', this)">Rust</button>
+          <button class="tab" onclick="switchTab('js', this)">JS</button>
           <button class="tab" onclick="switchTab('curl', this)">cURL</button>
         </div>
 
-        <div class="code-block active" id="tab-js">
-<pre><span class="cm">// Fetch and use the data in any web project</span>
-<span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'https://jonathangf.com/data.json'</span>);
-<span class="kw">const</span> data = <span class="kw">await</span> res.<span class="fn">json</span>();
-
-<span class="cm">// Access any field</span>
-console.<span class="fn">log</span>(data.pages.home.bio);
-console.<span class="fn">log</span>(data.pages.home.skills);  <span class="cm">// Array of skills</span>
-console.<span class="fn">log</span>(data.pages.about.hobbies); <span class="cm">// Array of hobbies</span>
-console.<span class="fn">log</span>(data.blog.posts);          <span class="cm">// Blog posts array</span></pre>
-        </div>
-
-        <div class="code-block" id="tab-python">
+        <div class="code-block active" id="tab-python">
 <pre><span class="kw">import</span> requests
 
 res = requests.<span class="fn">get</span>(<span class="str">'https://jonathangf.com/data.json'</span>)
@@ -383,6 +373,34 @@ data = res.<span class="fn">json</span>()
 <span class="fn">print</span>(data[<span class="str">'pages'</span>][<span class="str">'home'</span>][<span class="str">'bio'</span>])
 <span class="fn">print</span>(data[<span class="str">'pages'</span>][<span class="str">'home'</span>][<span class="str">'skills'</span>])
 <span class="fn">print</span>(data[<span class="str">'blog'</span>][<span class="str">'posts'</span>])</pre>
+        </div>
+
+        <div class="code-block" id="tab-rust">
+<pre><span class="cm">// Cargo.toml deps: reqwest = { version = "0.12", features = ["blocking", "json"] }</span>
+<span class="cm">// serde_json = "1"</span>
+<span class="kw">use</span> serde_json::Value;
+
+<span class="kw">fn</span> <span class="fn">main</span>() -> Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+  <span class="kw">let</span> data: Value = reqwest::blocking::<span class="fn">get</span>(<span class="str">"https://jonathangf.com/data.json"</span>)?.<span class="fn">json</span>()?;
+
+  <span class="cm">// Access any field</span>
+  <span class="fn">println!</span>(<span class="str">"{}"</span>, data[<span class="str">"pages"</span>][<span class="str">"home"</span>][<span class="str">"bio"</span>]);
+  <span class="fn">println!</span>(<span class="str">"{}"</span>, data[<span class="str">"pages"</span>][<span class="str">"home"</span>][<span class="str">"skills"</span>]);
+  <span class="fn">println!</span>(<span class="str">"{}"</span>, data[<span class="str">"blog"</span>][<span class="str">"posts"</span>]);
+  Ok(())
+}</pre>
+        </div>
+
+        <div class="code-block" id="tab-js">
+<pre><span class="cm">// Fetch and use the data in any web project</span>
+<span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'https://jonathangf.com/data.json'</span>);
+<span class="kw">const</span> data = <span class="kw">await</span> res.<span class="fn">json</span>();
+
+<span class="cm">// Access any field</span>
+console.<span class="fn">log</span>(data.pages.home.bio);
+console.<span class="fn">log</span>(data.pages.home.skills);  <span class="cm">// Array of skills</span>
+console.<span class="fn">log</span>(data.pages.about.hobbies); <span class="cm">// Array of hobbies</span>
+console.<span class="fn">log</span>(data.blog.posts);          <span class="cm">// Blog posts array</span></pre>
         </div>
 
         <div class="code-block" id="tab-curl">
