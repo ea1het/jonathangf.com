@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jonathan González — Open Data API</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111;
+      --border: #1e1e1e;
+      --accent: #c8f135;
+      --accent2: #3bf5c8;
+      --text: #e8e8e0;
+      --muted: #555;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grid overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200,241,53,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,241,53,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      animation: fadeDown 0.6s ease both;
+    }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; }
+    .logo {
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--accent); }
+    .badge {
+      background: var(--accent);
+      color: #0a0a0a;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 0 60px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+    .hero-tag {
+      color: var(--accent);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--sans);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p {
+      color: #999;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    /* ── ENDPOINT BOX ── */
+    .endpoint-section {
+      padding: 0 0 60px;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .endpoint-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .endpoint-url {
+      color: var(--accent2);
+      font-size: 0.85rem;
+      word-break: break-all;
+    }
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 6px 14px;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .copy-btn.copied { border-color: var(--accent2); color: var(--accent2); }
+
+    /* ── SCHEMA ── */
+    .schema-section {
+      padding: 0 0 60px;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+    .schema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 16px;
+    }
+    .schema-card {
+      background: var(--surface);
+      padding: 20px;
+      transition: background 0.2s;
+    }
+    .schema-card:hover { background: #161616; }
+    .schema-key {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .schema-desc {
+      color: #666;
+      font-size: 0.72rem;
+      line-height: 1.6;
+    }
+
+    /* ── USAGE ── */
+    .usage-section {
+      padding: 0 0 60px;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+    .tabs { display: flex; gap: 2px; margin-bottom: 0; }
+    .tab {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.05em;
+    }
+    .tab.active { color: var(--accent); border-color: var(--accent); background: #0f120a; }
+    .code-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px;
+      overflow-x: auto;
+      display: none;
+    }
+    .code-block.active { display: block; }
+    .code-block pre {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: #ccc;
+      white-space: pre;
+    }
+    .kw { color: #c792ea; }
+    .fn { color: var(--accent2); }
+    .str { color: #c3e88d; }
+    .cm { color: #546e7a; font-style: italic; }
+    .num { color: #f78c6c; }
+
+    /* ── PREVIEW ── */
+    .preview-section {
+      padding: 0 0 80px;
+      animation: fadeUp 0.7s 0.5s ease both;
+    }
+    .preview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0;
+      padding: 12px 16px;
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-bottom: none;
+    }
+    .preview-dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+    .dot:nth-child(1) { background: #ff5f56; }
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: #27c93f; }
+    .preview-label { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
+    #json-preview {
+      background: #080808;
+      border: 1px solid var(--border);
+      padding: 24px;
+      font-size: 0.75rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 420px;
+      color: #aaa;
+    }
+    #json-preview pre {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .json-key { color: var(--accent2); }
+    .json-str { color: #c3e88d; }
+    .json-num { color: #f78c6c; }
+    .json-bool { color: #c792ea; }
+    .json-null { color: #546e7a; }
+    .loading { color: var(--muted); font-size: 0.8rem; padding: 20px 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+    }
+    footer .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-text { font-size: 0.7rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="logo">jonathangf<span>.</span>com</div>
+      <div class="badge">Public API</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-tag">// open data endpoint</div>
+        <h1>My website.<br/><em>Your UI.</em></h1>
+        <p>All the content from this site is available as a single JSON&nbsp;endpoint.</p>
+        <p>Fetch it, shape it, style it however you want.</p>
+      </div>
+    </section>
+
+    <section class="endpoint-section">
+      <div class="wrap">
+        <div class="section-label">// endpoint</div>
+        <div class="endpoint-box">
+          <span class="endpoint-url" id="endpoint-url">https://jonathangf.com/data.json</span>
+          <button class="copy-btn" onclick="copyEndpoint()">copy url</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="schema-section">
+      <div class="wrap">
+        <div class="section-label">// schema</div>
+        <div class="schema-grid">
+          <div class="schema-card">
+            <div class="schema-key">site</div>
+            <div class="schema-desc">Title, URL and site description</div>
+          </div>
+          <div class="schema-card">
+            <div class="schema-key">nav</div>
+            <div class="schema-desc">Navigation links array with label + url</div>
+          </div>
+          <div class="schema-card">
+            <div class="schema-key">pages.home</div>
+            <div class="schema-desc">Headline, bio, skills array, hero image</div>
+          </div>
+          <div class="schema-card">
+            <div class="schema-key">pages.about</div>
+            <div class="schema-desc">Sections, hobbies, location, ham radio callsign</div>
+          </div>
+          <div class="schema-card">
+            <div class="schema-key">blog.posts</div>
+            <div class="schema-desc">Array of posts (title, date, excerpt, url)</div>
+          </div>
+          <div class="schema-card">
+            <div class="schema-key">meta</div>
+            <div class="schema-desc">Generated date and source attribution</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="usage-section">
+      <div class="wrap">
+        <div class="section-label">// usage</div>
+        <div class="tabs">
+          <button class="tab" onclick="switchTab('js', this)">JavaScript</button>
+          <button class="tab active" onclick="switchTab('python', this)">Python</button>
+          <button class="tab" onclick="switchTab('curl', this)">cURL</button>
+        </div>
+
+        <div class="code-block active" id="tab-js">
+<pre><span class="cm">// Fetch and use the data in any web project</span>
+<span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'https://jonathangf.com/data.json'</span>);
+<span class="kw">const</span> data = <span class="kw">await</span> res.<span class="fn">json</span>();
+
+<span class="cm">// Access any field</span>
+console.<span class="fn">log</span>(data.pages.home.bio);
+console.<span class="fn">log</span>(data.pages.home.skills);  <span class="cm">// Array of skills</span>
+console.<span class="fn">log</span>(data.pages.about.hobbies); <span class="cm">// Array of hobbies</span>
+console.<span class="fn">log</span>(data.blog.posts);          <span class="cm">// Blog posts array</span></pre>
+        </div>
+
+        <div class="code-block" id="tab-python">
+<pre><span class="kw">import</span> requests
+
+res = requests.<span class="fn">get</span>(<span class="str">'https://jonathangf.com/data.json'</span>)
+data = res.<span class="fn">json</span>()
+
+<span class="cm"># Access any field</span>
+<span class="fn">print</span>(data[<span class="str">'pages'</span>][<span class="str">'home'</span>][<span class="str">'bio'</span>])
+<span class="fn">print</span>(data[<span class="str">'pages'</span>][<span class="str">'home'</span>][<span class="str">'skills'</span>])
+<span class="fn">print</span>(data[<span class="str">'blog'</span>][<span class="str">'posts'</span>])</pre>
+        </div>
+
+        <div class="code-block" id="tab-curl">
+<pre><span class="cm"># Get the raw JSON</span>
+curl https://jonathangf.com/data.json
+
+<span class="cm"># Pretty print with jq</span>
+curl https://jonathangf.com/data.json | jq .
+
+<span class="cm"># Filter a specific field</span>
+curl https://jonathangf.com/data.json | jq <span class="str">'.pages.home.skills'</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <div class="wrap">
+        <div class="section-label">// live preview</div>
+        <div class="preview-header">
+          <div class="preview-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <div class="preview-label">data.json</div>
+        </div>
+        <div id="json-preview">
+          <span class="loading">loading data…</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-text">© Jonathan González — data is free, attribution is nice</div>
+      <div class="footer-links">
+        <a href="https://jonathangf.com">website</a>
+        <a href="./data.json">raw json</a>
+        <a href="https://ea1het.com">ea1het</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Tab switcher ──
+    function switchTab(name, el) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.code-block').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('tab-' + name).classList.add('active');
+    }
+
+    // ── Copy URL ──
+    function copyEndpoint() {
+      const url = document.getElementById('endpoint-url').textContent;
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'copy url'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    // ── JSON syntax highlight ──
+    function highlight(obj, indent = 0) {
+      const pad = ' '.repeat(indent * 2);
+      const padInner = ' '.repeat((indent + 1) * 2);
+
+      if (obj === null) return `<span class="json-null">null</span>`;
+      if (typeof obj === 'boolean') return `<span class="json-bool">${obj}</span>`;
+      if (typeof obj === 'number') return `<span class="json-num">${obj}</span>`;
+      if (typeof obj === 'string') {
+        const escaped = obj.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return `<span class="json-str">"${escaped}"</span>`;
+      }
+      if (Array.isArray(obj)) {
+        if (obj.length === 0) return '[]';
+        const items = obj.map(v => padInner + highlight(v, indent + 1)).join(',\n');
+        return `[\n${items}\n${pad}]`;
+      }
+      if (typeof obj === 'object') {
+        const keys = Object.keys(obj);
+        if (keys.length === 0) return '{}';
+        const items = keys.map(k => {
+          const val = highlight(obj[k], indent + 1);
+          return `${padInner}<span class="json-key">"${k}"</span>: ${val}`;
+        }).join(',\n');
+        return `{\n${items}\n${pad}}`;
+      }
+      return String(obj);
+    }
+
+    // ── Load JSON preview ──
+    fetch('./data.json')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('json-preview').innerHTML =
+          `<pre>${highlight(data)}</pre>`;
+      })
+      .catch(() => {
+        document.getElementById('json-preview').innerHTML =
+          `<span class="loading">⚠ place data.json in the same folder to see the preview</span>`;
+      });
+  </script>
+</body>
+</html>

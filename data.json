@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Jonathan González",
+    "url": "https://jonathangf.com",
+    "description": "Personal website of Jonathan González — Founder, CxO & Strategic Advisor"
+  },
+  "meta": {
+    "generated_at": "2026-03-11",
+    "source": "https://jonathangf.com",
+    "note": "Data for jonathangf.com. Use it however you like. Build your own UI! :)"
+  },
+  "pages": {
+    "home": {
+      "slug": "home",
+      "url": "https://jonathangf.com/",
+      "headline": "Hi there, welcome to my personal web site",
+      "intro": "Thank you for visiting me. My name is Jonathan González.",
+      "bio": "I'm CxO & strategic IT (enterprise) architect with 25+ years' experience in technology, cybersecurity and physical protection. Expert at developing and executing holistic security strategies, spanning digital and physical worlds.\n\nProven leader of cross-functional teams, adept at using modern technologies with a focus on proactive defense. I guide teams to harness cybersecurity, open and electronic intelligence, AI and scalable technology solutions to protect operations, financial stability and corporate reputation.\n\nIn my career I've found inspiration, and gathered rich background, working on information security, cybersecurity, networking & system administration roles, both at the technology and at the strategy levels. Personally, I consider, with hard work, I could managed to help multiple organisations, and that really gives me satisfaction and a bunch of confidence for new challenges.\n\nI had the opportunity to work in all kind of organisations, small ones, SMBs and blue chip, as contractor, permanent on payroll and as solo-entrepreneur, running my own company. This experiences granted me the necessary background to guide others and provide insightful conversations.",
+      "closing": "I'm looking forward to working with you next! 😉",
+      "skills": [
+        "Cybersecurity", "Enterprise Architecture", "Strategic Planning",
+        "TOGAF", "NIST", "PCI-DSS", "NIS2", "ISO 27001",
+        "AWS", "CI/CD", "Microservices", "Serverless"
+      ]
+    },
+    "about": {
+      "slug": "about",
+      "url": "https://jonathangf.com/about/",
+      "headline": "Welcome to my life!",
+      "sections": [
+        {
+          "title": "Professional",
+          "content": "I've been working remotely in IT consulting since 2012, specializing in cybersecurity, transformation, architecture, cloud management and strategic planning. Before I ever got my first startup off the ground, I actually built three business cases that taught me how to break down big, messy problems into practical, real-world solutions. So if you ever need someone who speaks both 'techie' and 'business,' I've got that covered.\n\nI work best when I can be remote, stay in touch with teammates online and skip the idea of an 'office for office's sake.' All this contributes to what I consider a 'mental break', something that permits creativity and great work delivery. I love LoFi beats playing softly in the background, headphones on, and a podcast queued up — anything from tech deep-dives to history or travel stories."
+        },
+        {
+          "title": "Personal",
+          "content": "Close to me, most folks just call me Jon, Jona, Jonan, Johnny, Jony… I decided to settle down and I'm living in a tiny village up in northern Spain. I'm a pretty honest person, and I'll always tell it like it is, even if being straightforward isn't the easiest path.\n\nAs a fun fact, I'm a licensed ham radio operator (EA1HET). Ham radio is almost about tinkering with radios and wave propagation. I'm a total 'maker' at heart — give me a Raspberry Pi, a handful of sensors and a soldering iron and I'm in heaven, especially when it involves amateur radio or IoT projects.\n\nWhen I'm not knee-deep in code or architecting a secure solution, I'm probably out hiking a 10 km trail, cycling through the hills, swimming laps or practicing some martial arts. I love literally all kinds of sports, but nothing beats a long walk in nature for clearing my head. I try to make choices that respect the environment and travelling is a big part of my life — I love seeing new places and meeting new people."
+        }
+      ],
+      "location": "Northern Spain",
+      "hobbies": [
+        "Ham radio operator (EA1HET)",
+        "Maker / electronics tinkering",
+        "Raspberry Pi & IoT projects",
+        "Hiking",
+        "Cycling",
+        "Swimming",
+        "Martial arts",
+        "Travelling"
+      ],
+      "ham_radio": {
+        "callsign": "EA1HET",
+        "url": "https://ea1het.com"
+      }
+    }
+  },
+  "blog": {
+    "url": "https://jonathangf.com/blog/",
+    "posts": []
+  },
+  "contact": {
+    "url": "https://jonathangf.com/contact/"
+  },
+  "nav": [
+    { "label": "Home", "url": "https://jonathangf.com/" },
+    { "label": "About", "url": "https://jonathangf.com/about/" },
+    { "label": "Blog", "url": "https://jonathangf.com/blog/" },
+    { "label": "Contact", "url": "https://jonathangf.com/contact/" }
+  ]
+}
