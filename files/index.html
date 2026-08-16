@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="File share — jonathangf.com" />
+  <title>Files — jonathangf.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --border: #dfe3e8;
+      --accent: #0f3854;
+      --accent2: #0e7c74;
+      --text: #1b232c;
+      --muted: #64707c;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grid overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(15,56,84,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,56,84,0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      animation: fadeDown 0.6s ease both;
+    }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .logo {
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .logo span { color: var(--accent); }
+    nav { display: flex; gap: 24px; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero { padding: 60px 0 40px; animation: fadeUp 0.7s 0.1s ease both; }
+    .hero-tag {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--sans);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .hero p { color: #45505c; font-size: 0.9rem; line-height: 1.8; }
+
+    /* ── EXPLORER ── */
+    section#explorer { padding: 0 0 90px; animation: fadeUp 0.7s 0.2s ease both; }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .file-count { font-size: 0.78rem; color: var(--muted); }
+    .file-search {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      min-width: 220px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .file-search:focus { border-color: var(--accent); }
+    .file-search::placeholder { color: var(--muted); }
+
+    .file-list {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+    }
+
+    .file-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .file-row:last-child { border-bottom: none; }
+    .file-row:hover, .file-row:focus-visible { background: rgba(15,56,84,0.04); }
+    .file-row:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+
+    .file-icon { font-size: 1rem; flex: 0 0 auto; }
+    .file-name {
+      flex: 1 1 auto;
+      font-size: 0.85rem;
+      color: var(--text);
+      overflow-wrap: anywhere;
+    }
+    .file-ext {
+      flex: 0 0 auto;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      background: rgba(15,56,84,0.07);
+      padding: 3px 8px;
+    }
+    .file-size {
+      flex: 0 0 auto;
+      font-size: 0.75rem;
+      color: var(--muted);
+      min-width: 64px;
+      text-align: right;
+    }
+    .file-actions { flex: 0 0 auto; display: flex; gap: 8px; }
+    .file-actions button, .file-actions a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      padding: 7px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .file-actions button:hover, .file-actions a:hover { border-color: var(--accent); color: var(--accent); }
+
+    .empty-state, .error-state {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 560px) {
+      .file-size { display: none; }
+      .file-row { flex-wrap: wrap; }
+      .file-actions { width: 100%; justify-content: flex-end; }
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 22, 30, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 10;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      width: 100%;
+      max-width: 860px;
+      max-height: 86vh;
+      display: flex;
+      flex-direction: column;
+      animation: fadeUp 0.25s ease both;
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+    .modal-header-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+    .modal-header-actions a, .modal-close {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      padding: 7px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .modal-header-actions a:hover, .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+    .modal-body { flex: 1 1 auto; overflow: auto; }
+    .modal-body iframe { width: 100%; height: 70vh; border: none; display: block; }
+    .modal-body pre {
+      margin: 0;
+      padding: 20px;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--text);
+    }
+    .modal-body .modal-status { padding: 40px 20px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 24px 0; }
+    footer .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-text { font-size: 0.7rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.7rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="logo" href="../index.html">jonathangf<span>.</span>com</a>
+      <nav>
+        <a href="../index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-tag">// files</div>
+        <h1>File share.</h1>
+        <p>Browse and open whatever's been dropped in here. Some formats preview inline, everything else downloads directly.</p>
+      </div>
+    </section>
+
+    <section id="explorer">
+      <div class="wrap">
+        <div class="toolbar">
+          <span class="file-count" id="fileCount">Loading…</span>
+          <input class="file-search" id="fileSearch" type="text" placeholder="Filter files…" autocomplete="off" />
+        </div>
+        <div class="file-list" id="fileList"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-text">2000-2026 © Jonathan González</div>
+      <div class="footer-links">
+        <a href="mailto:info@jonathangf.com">Email</a>
+        <a href="../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-header-actions">
+          <a id="modalDownload" href="#" download>Download</a>
+          <button class="modal-close" id="modalClose" type="button">Close ✕</button>
+        </div>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // Extensions the browser can render natively — open inline. Anything else downloads.
+      var IFRAME_EXT = ['html', 'htm', 'pdf'];
+      var TEXT_EXT = ['txt', 'css', 'js', 'md'];
+      var PREVIEWABLE = IFRAME_EXT.concat(TEXT_EXT);
+
+      var ICONS = {
+        pdf: '📕', html: '🌐', htm: '🌐', txt: '📄', md: '📝',
+        css: '🎨', js: '⚙️'
+      };
+      var DEFAULT_ICON = '📦';
+
+      var fileListEl = document.getElementById('fileList');
+      var fileCountEl = document.getElementById('fileCount');
+      var fileSearchEl = document.getElementById('fileSearch');
+      var overlay = document.getElementById('modalOverlay');
+      var modalTitle = document.getElementById('modalTitle');
+      var modalBody = document.getElementById('modalBody');
+      var modalDownload = document.getElementById('modalDownload');
+      var modalClose = document.getElementById('modalClose');
+
+      var allFiles = [];
+
+      function ext(name) {
+        var i = name.lastIndexOf('.');
+        return i === -1 ? '' : name.slice(i + 1).toLowerCase();
+      }
+
+      function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+      }
+
+      function render(files) {
+        fileListEl.innerHTML = '';
+
+        if (!files.length) {
+          var empty = document.createElement('div');
+          empty.className = 'empty-state';
+          empty.textContent = allFiles.length ? 'No files match your filter.' : 'No files here yet.';
+          fileListEl.appendChild(empty);
+          return;
+        }
+
+        files.forEach(function (file) {
+          var e = ext(file.name);
+          var previewable = PREVIEWABLE.indexOf(e) !== -1;
+          var url = encodeURIComponent(file.name);
+
+          var row = document.createElement('div');
+          row.className = 'file-row';
+          row.tabIndex = 0;
+          row.setAttribute('role', 'button');
+          row.setAttribute('aria-label', (previewable ? 'Preview ' : 'Download ') + file.name);
+
+          var icon = document.createElement('span');
+          icon.className = 'file-icon';
+          icon.textContent = ICONS[e] || DEFAULT_ICON;
+
+          var name = document.createElement('span');
+          name.className = 'file-name';
+          name.textContent = file.name;
+
+          var extBadge = document.createElement('span');
+          extBadge.className = 'file-ext';
+          extBadge.textContent = e ? e.toUpperCase() : 'FILE';
+
+          var size = document.createElement('span');
+          size.className = 'file-size';
+          size.textContent = formatSize(file.size);
+
+          var actions = document.createElement('span');
+          actions.className = 'file-actions';
+
+          if (previewable) {
+            var viewBtn = document.createElement('button');
+            viewBtn.type = 'button';
+            viewBtn.textContent = 'View';
+            viewBtn.addEventListener('click', function (evt) {
+              evt.stopPropagation();
+              openPreview(file);
+            });
+            actions.appendChild(viewBtn);
+          }
+
+          var dlLink = document.createElement('a');
+          dlLink.href = url;
+          dlLink.setAttribute('download', file.name);
+          dlLink.textContent = 'Download';
+          dlLink.addEventListener('click', function (evt) { evt.stopPropagation(); });
+          actions.appendChild(dlLink);
+
+          row.appendChild(icon);
+          row.appendChild(name);
+          row.appendChild(extBadge);
+          row.appendChild(size);
+          row.appendChild(actions);
+
+          row.addEventListener('click', function () {
+            if (previewable) {
+              openPreview(file);
+            } else {
+              dlLink.click();
+            }
+          });
+          row.addEventListener('keydown', function (evt) {
+            if (evt.key === 'Enter' || evt.key === ' ') {
+              evt.preventDefault();
+              row.click();
+            }
+          });
+
+          fileListEl.appendChild(row);
+        });
+      }
+
+      function openPreview(file) {
+        var e = ext(file.name);
+        var url = encodeURIComponent(file.name);
+
+        modalTitle.textContent = file.name;
+        modalDownload.href = url;
+        modalDownload.setAttribute('download', file.name);
+        modalBody.innerHTML = '';
+
+        if (IFRAME_EXT.indexOf(e) !== -1) {
+          var iframe = document.createElement('iframe');
+          iframe.src = url;
+          modalBody.appendChild(iframe);
+        } else {
+          var status = document.createElement('div');
+          status.className = 'modal-status';
+          status.textContent = 'Loading…';
+          modalBody.appendChild(status);
+
+          fetch(url)
+            .then(function (res) {
+              if (!res.ok) throw new Error('HTTP ' + res.status);
+              return res.text();
+            })
+            .then(function (text) {
+              modalBody.innerHTML = '';
+              var pre = document.createElement('pre');
+              pre.textContent = text;
+              modalBody.appendChild(pre);
+            })
+            .catch(function () {
+              modalBody.innerHTML = '';
+              var err = document.createElement('div');
+              err.className = 'modal-status';
+              err.textContent = 'Could not load this file.';
+              modalBody.appendChild(err);
+            });
+        }
+
+        overlay.classList.add('open');
+        modalClose.focus();
+      }
+
+      function closePreview() {
+        overlay.classList.remove('open');
+        modalBody.innerHTML = '';
+      }
+
+      modalClose.addEventListener('click', closePreview);
+      overlay.addEventListener('click', function (evt) {
+        if (evt.target === overlay) closePreview();
+      });
+      document.addEventListener('keydown', function (evt) {
+        if (evt.key === 'Escape' && overlay.classList.contains('open')) closePreview();
+      });
+
+      fileSearchEl.addEventListener('input', function () {
+        var q = fileSearchEl.value.trim().toLowerCase();
+        var filtered = q ? allFiles.filter(function (f) { return f.name.toLowerCase().indexOf(q) !== -1; }) : allFiles;
+        render(filtered);
+      });
+
+      fetch('manifest.json')
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (files) {
+          allFiles = files || [];
+          fileCountEl.textContent = allFiles.length + (allFiles.length === 1 ? ' file' : ' files');
+          render(allFiles);
+        })
+        .catch(function () {
+          fileCountEl.textContent = '';
+          fileListEl.innerHTML = '<div class="error-state">Could not load the file list.</div>';
+        });
+    })();
+  </script>
+</body>
+</html>
