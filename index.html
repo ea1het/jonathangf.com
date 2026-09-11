@@ -1,411 +1,294 @@
-<!--
-Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sbe zr?
-(ROT13)
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jonathan González — Technology & security architecture leader (CTO / CISO / Head of Architecture). 25+ years across cybersecurity, cloud transformation (AWS, Azure) and critical 24/7 environments." />
-  <title>Jonathan González — Technology & Security Architecture Leader</title>
+  <meta name="description" content="Curriculum vitae of Jonathan González — Technology & security architecture leader (CTO / CISO / Head of Architecture)." />
+  <title>Jonathan González — Curriculum Vitae</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f7f8fa;
-      --surface: #ffffff;
-      --border: #dfe3e8;
-      --accent: #0f3854;
-      --accent2: #0e7c74;
-      --text: #1b232c;
-      --muted: #64707c;
+      --bg: #f4f5f3;
+      --paper: #ffffff;
+      --rule: #dfe1dd;
+      --ink: #1e2624;
+      --muted: #626b67;
+      --accent: #1f5f52;
       --warn: #8a5a10;
       --warn-bg: #fdf3e0;
       --warn-border: #eccb8c;
-      --mono: 'IBM Plex Mono', monospace;
-      --sans: 'Syne', sans-serif;
+      --display: 'Source Serif 4', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--text);
-      font-family: var(--mono);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Grid overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(15,56,84,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15,56,84,0.035) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .wrap { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; padding: 0 24px; }
-
-    /* ── HEADER ── */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-      animation: fadeDown 0.6s ease both;
-      position: sticky;
-      top: 0;
-      background: rgba(247,248,250,0.92);
-      backdrop-filter: blur(6px);
-      z-index: 10;
-    }
-    header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px 20px; }
-    .logo {
+      color: var(--ink);
       font-family: var(--sans);
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
-    .logo span { color: var(--accent); }
-    nav { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: flex-end; }
-    nav a {
+
+    .sheet {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--paper);
+      padding: 72px 72px 90px;
+    }
+
+    /* ── TOP BAR (screen only) ── */
+    .topbar {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 72px 0;
+      font-size: 0.82rem;
+    }
+    .topbar a, .topbar button {
+      font-family: var(--sans);
+      font-size: 0.82rem;
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-      white-space: nowrap;
+      background: none;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.15s;
     }
-    nav a:hover { color: var(--accent); }
+    .topbar a:hover, .topbar button:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── HERO ── */
-    .hero {
-      padding: 90px 0 40px;
-      animation: fadeUp 0.7s 0.1s ease both;
-    }
-    .hero-tag {
-      color: var(--accent);
-      font-size: 0.8rem;
+    /* ── MASTHEAD ── */
+    .masthead { padding-bottom: 0; }
+    .masthead h1 {
+      font-family: var(--display);
+      font-size: 2.6rem;
       font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
+      letter-spacing: -0.01em;
       min-height: 1.2em;
+      color: var(--ink);
     }
-    .hero h1 {
-      font-family: var(--sans);
-      font-size: clamp(2rem, 6vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      min-height: 1.1em;
-    }
-
-    /* ── SECTIONS ── */
-    section { padding: 0 0 70px; }
-    #about { animation: fadeUp 0.7s 0.2s ease both; }
-    #experience { animation: fadeUp 0.7s 0.25s ease both; }
-    #expertise { animation: fadeUp 0.7s 0.3s ease both; }
-    #credentials { animation: fadeUp 0.7s 0.35s ease both; }
-    #contact { padding-bottom: 90px; animation: fadeUp 0.7s 0.4s ease both; }
-
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .bio p {
-      color: #45505c;
-      font-size: 0.9rem;
-      line-height: 1.9;
-      margin-bottom: 18px;
-      max-width: 680px;
-    }
-    .bio p:last-child { margin-bottom: 0; }
-
-    .location {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-    .location:not(:empty)::before { content: '📍'; font-size: 0.85rem; }
-
-    /* ── TIMELINE (experience) ── */
-    .timeline {
-      position: relative;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      padding-left: 28px;
-      border-left: 2px solid var(--border);
+    .masthead .tagline {
       margin-top: 8px;
+      color: var(--accent);
+      font-size: 1.08rem;
+      font-weight: 500;
+      min-height: 1.3em;
     }
-    .timeline-item { position: relative; }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -34px;
-      top: 5px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px var(--bg);
-    }
-    .timeline-item.current::before { background: var(--accent2); }
-    .timeline-head {
+    .contact-line {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--muted);
       display: flex;
       flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 6px 16px;
+      gap: 6px 18px;
     }
-    .timeline-head h3 {
-      font-family: var(--sans);
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-    .timeline-period {
+    .contact-line a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       color: var(--muted);
-      font-size: 0.72rem;
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+    .contact-line a:hover { color: var(--accent); border-color: var(--accent); }
+    .contact-line .icon {
+      display: inline-flex;
+      width: 1em;
+      height: 1em;
+      flex: 0 0 auto;
+    }
+    .contact-line .icon svg { width: 100%; height: 100%; display: block; }
+    .contact-line .icon.icon-mail svg { color: currentColor; }
+    .contact-line .icon.icon-linkedin svg { color: #0a66c2; }
+
+    /* ── SECTIONS ── */
+    section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule); }
+    .section-title {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 600;
       letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .profile p {
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      max-width: 660px;
+    }
+    .profile p:last-child { margin-bottom: 0; }
+
+    /* ── EXPERIENCE ── */
+    .entry { margin-bottom: 36px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4px 16px;
+    }
+    .entry-role { font-weight: 700; font-size: 1.08rem; }
+    .entry-period {
+      font-size: 0.82rem;
+      color: var(--muted);
       white-space: nowrap;
     }
-    .timeline-company {
+    .entry-company {
       color: var(--accent);
-      font-size: 0.82rem;
       font-weight: 600;
-      margin-top: 4px;
+      font-size: 0.95rem;
+      margin-top: 3px;
     }
-    .timeline-context {
+    .entry-context {
       color: var(--muted);
-      font-size: 0.8rem;
-      font-style: italic;
-      line-height: 1.6;
-      margin-top: 8px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      line-height: 1.7;
       max-width: 640px;
     }
-    .timeline-highlights {
+    .entry-highlights {
       list-style: none;
       margin-top: 14px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    .timeline-highlights li {
+    .entry-highlights li {
       position: relative;
-      padding-left: 18px;
-      color: #45505c;
-      font-size: 0.85rem;
+      padding-left: 20px;
+      font-size: 0.96rem;
       line-height: 1.7;
       max-width: 660px;
     }
-    .timeline-highlights li::before {
-      content: '▸';
+    .entry-highlights li::before {
+      content: '';
       position: absolute;
       left: 0;
-      color: var(--accent2);
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
-    .earlier-career { margin-top: 52px; }
-    .section-subtitle {
-      font-family: var(--sans);
-      font-weight: 700;
-      font-size: 0.95rem;
+    /* ── EARLIER CAREER ── */
+    .earlier-career { margin-top: 40px; }
+    .earlier-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
       margin-bottom: 16px;
     }
-    .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.72rem;
-      padding: 6px 12px;
-      line-height: 1.4;
+    .earlier-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .earlier-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px 20px;
+      font-size: 0.92rem;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--rule);
     }
-    .chip strong { color: var(--text); font-weight: 600; }
+    .earlier-list li:last-child .earlier-row { border-bottom: none; padding-bottom: 0; }
+    .earlier-row .who { color: var(--ink); }
+    .earlier-row .who strong { font-weight: 600; }
+    .earlier-row .when { color: var(--muted); font-size: 0.82rem; white-space: nowrap; }
 
     /* ── EXPERTISE ── */
-    .expertise-group { margin-bottom: 32px; }
+    .expertise-group { margin-bottom: 26px; }
     .expertise-group:last-child { margin-bottom: 0; }
     .expertise-group h3 {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 12px;
+      color: var(--accent);
+      margin-bottom: 10px;
     }
-    .tag-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .expertise-group p {
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.75;
     }
-    .tag {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-size: 0.75rem;
-      padding: 8px 14px;
-      letter-spacing: 0.02em;
-      transition: all 0.2s;
-    }
-    .tag:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ── CREDENTIALS ── */
-    .cert-chip-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-    .cert-chip {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent2);
-      color: var(--text);
-      font-size: 0.75rem;
+    .cred-block { margin-bottom: 36px; }
+    .cred-block:last-child { margin-bottom: 0; }
+    .cred-block-title {
       font-weight: 600;
-      padding: 8px 14px;
-    }
-    .credentials-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-    .credentials-col h3 {
-      font-family: var(--sans);
-      font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
       margin-bottom: 16px;
     }
-    .credential-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .credential-list li {
-      border-left: 2px solid var(--border);
-      padding-left: 14px;
+    .cert-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .cert-list li {
+      font-size: 0.96rem;
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
     }
-    .credential-list strong {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .credential-list span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.75rem;
-      margin-top: 2px;
-      line-height: 1.5;
-    }
-    .languages {
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 20px;
-    }
-    .languages strong { color: var(--text); }
+    .cert-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
 
-    /* ── CONTACT ── */
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      padding: 36px;
+    .edu-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+    .edu-list li { font-size: 0.96rem; }
+    .edu-list strong { display: block; font-weight: 600; margin-bottom: 3px; }
+    .edu-list .meta { display: block; color: var(--muted); font-size: 0.85rem; }
+    .edu-list .note { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 4px; line-height: 1.6; max-width: 600px; white-space: pre-line; }
+
+    .languages-row {
+      display: flex;
+      gap: 8px 26px;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+      color: var(--ink);
     }
-    .contact-box h2 {
-      font-family: var(--sans);
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-      min-height: 1.2em;
-    }
-    .contact-box p {
-      color: #45505c;
-      font-size: 0.88rem;
-      line-height: 1.8;
-      max-width: 560px;
-      margin-bottom: 28px;
-    }
-    .btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
-    .email-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--accent);
-      color: #ffffff;
-      text-decoration: none;
-      font-family: var(--mono);
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 14px 24px;
-      letter-spacing: 0.02em;
-      transition: all 0.2s;
-    }
-    .email-btn:hover { background: var(--accent2); transform: translateY(-1px); }
-    .email-btn.secondary {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--border);
-    }
-    .email-btn.secondary:hover {
-      background: var(--surface);
-      border-color: var(--accent);
-      color: var(--accent2);
-      transform: translateY(-1px);
-    }
+    .languages-row strong { font-weight: 600; }
+    .languages-row .lvl { color: var(--muted); }
 
     /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-    }
-    footer .wrap {
+    .colophon {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-size: 0.8rem;
+      color: var(--muted);
       display: flex;
-      align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px 16px;
     }
-    .footer-text { font-size: 0.7rem; color: var(--muted); }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
-    .footer-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.7rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--accent); }
+    .colophon a { color: var(--muted); }
 
-    /* ── DATA LOAD ERROR BANNER ── */
+    /* ── DATA LOAD ERROR ── */
     .load-error {
       position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      left: 0; right: 0; bottom: 0;
       z-index: 20;
       background: var(--warn-bg);
       border-top: 1px solid var(--warn-border);
     }
-    .load-error .wrap {
+    .load-error .inner {
+      max-width: 800px;
+      margin: 0 auto;
       padding: 14px 24px;
       color: var(--warn);
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       line-height: 1.6;
     }
     .load-error code {
@@ -414,127 +297,93 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       border-radius: 3px;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to   { opacity: 1; transform: translateY(0); }
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; font-size: 11.5pt; line-height: 1.55; }
+      .topbar { display: none; }
+      .sheet { padding: 0; max-width: none; }
+      section { margin-top: 22px; padding-top: 18px; break-inside: avoid; }
+      .entry { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+      .load-error { display: none; }
+      @page { margin: 1.8cm; }
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .wrap { padding: 0 18px; }
-      header { padding: 16px 0; }
-      nav { gap: 8px 16px; justify-content: flex-start; width: 100%; }
-      .hero { padding: 56px 0 30px; }
-      .hero-tag { margin-bottom: 14px; font-size: 0.72rem; }
-      section { padding-bottom: 52px; }
-      .contact-box { padding: 24px; }
-      .credentials-grid { grid-template-columns: 1fr; gap: 32px; }
-      .timeline { padding-left: 20px; }
-      .timeline-item::before { left: -26px; width: 8px; height: 8px; }
-      .timeline-head { flex-direction: column; align-items: flex-start; gap: 4px; }
-      .btn-row { flex-direction: column; align-items: stretch; }
-      .email-btn { justify-content: center; }
-      footer .wrap { flex-direction: column; align-items: flex-start; }
+      .sheet { padding: 44px 26px 60px; }
+      .topbar { padding: 16px 20px 0; }
+      .masthead h1 { font-size: 2rem; }
+      .entry-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .earlier-row { flex-direction: column; gap: 2px; }
+      .colophon { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="wrap">
-      <div class="logo" id="brand"></div>
-      <nav id="site-nav"></nav>
-    </div>
-  </header>
+  <div class="topbar">
+    <a href="/files">← File Share</a>
+    <button type="button" id="print-btn" onclick="window.print()">Print / Save as PDF</button>
+  </div>
 
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-tag" id="hero-tag"></div>
-        <h1 id="hero-heading"></h1>
+  <main class="sheet">
+    <header class="masthead">
+      <h1 id="cv-name"></h1>
+      <div class="tagline" id="cv-tagline"></div>
+      <div class="contact-line" id="cv-contact"></div>
+    </header>
+
+    <section class="profile" id="section-profile">
+      <div class="section-title" id="label-profile">Profile</div>
+      <div id="cv-bio"></div>
+    </section>
+
+    <section id="section-experience">
+      <div class="section-title" id="label-experience">Professional Experience</div>
+      <div id="cv-experience"></div>
+
+      <div class="earlier-career">
+        <div class="earlier-title" id="label-earlier">Earlier Career</div>
+        <ul class="earlier-list" id="cv-earlier"></ul>
       </div>
     </section>
 
-    <section id="about">
-      <div class="wrap">
-        <div class="section-label" id="label-about"></div>
-        <div class="bio" id="about-bio"></div>
-        <div class="location" id="about-location"></div>
+    <section id="section-expertise">
+      <div class="section-title" id="label-expertise">Areas of Expertise</div>
+      <div id="cv-expertise"></div>
+    </section>
+
+    <section id="section-credentials">
+      <div class="section-title" id="label-credentials">Certifications &amp; Education</div>
+
+      <div class="cred-block">
+        <div class="cred-block-title" id="label-certifications">Certifications</div>
+        <ul class="cert-list" id="cv-certifications"></ul>
+      </div>
+
+      <div class="cred-block">
+        <div class="cred-block-title" id="label-education">Education</div>
+        <ul class="edu-list" id="cv-education"></ul>
+      </div>
+
+      <div class="cred-block">
+        <div class="section-title" id="label-languages">Languages</div>
+        <div class="languages-row" id="cv-languages"></div>
       </div>
     </section>
 
-    <section id="experience">
-      <div class="wrap">
-        <div class="section-label" id="label-experience"></div>
-        <ol class="timeline" id="experience-timeline"></ol>
-
-        <div class="earlier-career">
-          <div class="section-subtitle" id="earlier-career-label"></div>
-          <div class="chip-grid" id="earlier-career-chips"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="expertise">
-      <div class="wrap">
-        <div class="section-label" id="label-expertise"></div>
-        <div id="expertise-groups"></div>
-      </div>
-    </section>
-
-    <section id="credentials">
-      <div class="wrap">
-        <div class="section-label" id="label-credentials"></div>
-
-        <div class="cert-chip-grid" id="credentials-certs"></div>
-
-        <div class="credentials-grid">
-          <div class="credentials-col">
-            <h3 id="credentials-education-heading"></h3>
-            <ul class="credential-list" id="credentials-education"></ul>
-          </div>
-          <div class="credentials-col">
-            <h3 id="credentials-insights-heading"></h3>
-            <ul class="credential-list" id="credentials-insights"></ul>
-          </div>
-        </div>
-
-        <div class="languages" id="credentials-languages"></div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap">
-        <div class="section-label" id="label-contact"></div>
-        <div class="contact-box">
-          <h2 id="contact-heading"></h2>
-          <p id="contact-paragraph"></p>
-          <div class="btn-row" id="contact-buttons"></div>
-        </div>
-      </div>
-    </section>
+    <div class="colophon" id="cv-colophon"></div>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <div class="footer-text" id="footer-text"></div>
-      <div class="footer-links" id="footer-links"></div>
-    </div>
-  </footer>
-
   <div class="load-error" id="load-error" hidden>
-    <div class="wrap">
+    <div class="inner">
       ⚠ Couldn't load <code>data.json</code>. If you're viewing this file directly from disk, browsers block that fetch for security reasons — serve the folder over HTTP instead, e.g. <code>python3 -m http.server</code>, then reload.
     </div>
   </div>
 
   <script>
     (function () {
-      // Tiny hyperscript-style DOM builder: h('div', {class:'x'}, 'text', childNode, [moreChildren])
       function h(tag, props, ...kids) {
         const node = document.createElement(tag);
         if (props) {
@@ -551,6 +400,16 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
         return node;
       }
 
+      // Open-source SVG icons — Feather Icons (MIT) for mail, Simple Icons (CC0) for LinkedIn's glyph.
+      const ICON_MAIL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>';
+      const ICON_LINKEDIN = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>';
+
+      function svgIcon(name, markup) {
+        const span = h('span', { class: 'icon icon-' + name, 'aria-hidden': 'true' });
+        span.innerHTML = markup;
+        return span;
+      }
+
       function setChildren(id, ...children) {
         const el = document.getElementById(id);
         if (!el) return;
@@ -561,143 +420,111 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
         }
       }
 
-      function renderSiteMeta(site) {
+      function renderMasthead(site) {
         if (!site) return;
-        if (site.title && site.tagline) document.title = `${site.title} — ${site.tagline}`;
+        if (site.title) {
+          document.title = `${site.title} — Curriculum Vitae`;
+          setChildren('cv-name', site.title);
+        }
+        setChildren('cv-tagline', site.tagline);
         if (site.description) {
           const metaDesc = document.querySelector('meta[name="description"]');
-          if (metaDesc) metaDesc.setAttribute('content', site.description);
+          if (metaDesc) metaDesc.setAttribute('content', 'Curriculum vitae of ' + site.description.replace(/^Personal website of\s*/i, ''));
         }
       }
 
-      function renderBrand(brand) {
-        if (!brand) return;
-        const lastDot = brand.lastIndexOf('.');
-        if (lastDot === -1) { setChildren('brand', brand); return; }
-        setChildren('brand', brand.slice(0, lastDot), h('span', {}, '.'), brand.slice(lastDot + 1));
+      function renderContactLine(contact, about) {
+        const parts = [];
+        if (contact && contact.email) {
+          parts.push(h('a', { href: 'mailto:' + contact.email },
+            svgIcon('mail', ICON_MAIL),
+            contact.email
+          ));
+        }
+        if (contact && contact.linkedin) {
+          const label = (contact.linkedin_label || 'LinkedIn').replace(/^in\s+/i, '');
+          parts.push(h('a', { href: contact.linkedin, target: '_blank', rel: 'noopener' },
+            svgIcon('linkedin', ICON_LINKEDIN),
+            label
+          ));
+        }
+        if (about && about.location) parts.push(h('span', {}, about.location));
+        setChildren('cv-contact', parts);
       }
 
-      function renderLabels(labels) {
-        if (!labels) return;
-        const sections = labels.sections || {};
-        setChildren('label-about', sections.about);
-        setChildren('label-experience', sections.experience);
-        setChildren('label-expertise', sections.expertise);
-        setChildren('label-credentials', sections.credentials);
-        setChildren('label-contact', sections.contact);
-        setChildren('earlier-career-label', labels.earlier_career);
-        setChildren('credentials-education-heading', labels.credentials_education);
-        setChildren('credentials-insights-heading', labels.credentials_insights);
-      }
-
-      function renderNav(items) {
-        setChildren('site-nav', (items || []).map(item => h('a', { href: item.href }, item.label)));
-      }
-
-      function renderHero(hero) {
-        if (!hero) return;
-        setChildren('hero-tag', hero.tag);
-        setChildren('hero-heading', hero.heading);
-      }
-
-      function renderAbout(bio, about) {
+      function renderProfile(bio) {
         const paragraphs = (bio || '').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
-        setChildren('about-bio', paragraphs.map(p => h('p', {}, p)));
-        setChildren('about-location', about && about.location);
+        setChildren('cv-bio', paragraphs.map(p => h('p', {}, p)));
       }
 
       function renderExperience(experience, earlierCareer) {
-        setChildren('experience-timeline', (experience || []).map(job => {
-          const li = h('li', { class: 'timeline-item' + (job.current ? ' current' : '') },
-            h('div', { class: 'timeline-head' },
-              h('h3', {}, job.role),
-              h('span', { class: 'timeline-period' }, job.period)
+        setChildren('cv-experience', (experience || []).map(job =>
+          h('div', { class: 'entry' },
+            h('div', { class: 'entry-head' },
+              h('span', { class: 'entry-role' }, job.role),
+              h('span', { class: 'entry-period' }, job.period)
             ),
-            h('div', { class: 'timeline-company' }, job.company),
-            h('p', { class: 'timeline-context' }, job.context),
-            h('ul', { class: 'timeline-highlights' }, (job.highlights || []).map(item => h('li', {}, item)))
-          );
-          return li;
-        }));
+            h('div', { class: 'entry-company' }, job.company),
+            job.context ? h('div', { class: 'entry-context' }, job.context) : null,
+            h('ul', { class: 'entry-highlights' }, (job.highlights || []).map(item => h('li', {}, item)))
+          )
+        ));
 
-        setChildren('earlier-career-chips', (earlierCareer || []).map(job =>
-          h('span', { class: 'chip' },
-            h('strong', {}, job.company),
-            ` · ${job.role} · ${job.period}`
+        setChildren('cv-earlier', (earlierCareer || []).map(job =>
+          h('li', {},
+            h('div', { class: 'earlier-row' },
+              h('span', { class: 'who' }, h('strong', {}, job.company), ' — ' + job.role),
+              h('span', { class: 'when' }, job.period)
+            )
           )
         ));
       }
 
       function renderExpertise(groups) {
-        setChildren('expertise-groups', (groups || []).map(group =>
+        setChildren('cv-expertise', (groups || []).map(group =>
           h('div', { class: 'expertise-group' },
             h('h3', {}, group.title),
-            h('div', { class: 'tag-grid' }, (group.items || []).map(item => h('span', { class: 'tag' }, item)))
+            h('p', {}, (group.items || []).join(' · '))
           )
         ));
       }
 
       function renderCredentials(credentials) {
         if (!credentials) return;
-        setChildren('credentials-certs', (credentials.certifications || []).map(cert =>
-          h('span', { class: 'cert-chip' }, cert)
-        ));
 
-        setChildren('credentials-education', (credentials.education || []).map(edu => {
+        setChildren('cv-certifications', (credentials.certifications || []).map(cert => h('li', {}, cert)));
+
+        setChildren('cv-education', (credentials.education || []).map(edu => {
           const meta = [edu.institution, edu.period].filter(Boolean).join(' · ');
           return h('li', {},
             h('strong', {}, edu.degree),
-            h('span', {}, meta),
-            edu.note ? h('span', {}, edu.note) : null
+            h('span', { class: 'meta' }, meta),
+            edu.note ? h('span', { class: 'note' }, edu.note) : null
           );
         }));
 
-        setChildren('credentials-insights', (credentials.insights || []).map(insight =>
-          h('li', {},
-            h('strong', {}, insight.title),
-            h('span', {}, insight.description)
-          )
-        ));
-
-        setChildren('credentials-languages', (credentials.languages || []).map(lang =>
-          h('span', {}, h('strong', {}, lang.language), ` · ${lang.level}`)
+        setChildren('cv-languages', (credentials.languages || []).map(lang =>
+          h('span', {}, h('strong', {}, lang.language), h('span', { class: 'lvl' }, ' — ' + lang.level))
         ));
       }
 
-      function renderContact(contact) {
-        if (!contact) return;
-        setChildren('contact-heading', contact.heading);
-        setChildren('contact-paragraph', contact.paragraph);
-        const buttons = [h('a', { class: 'email-btn', href: 'mailto:' + contact.email }, contact.email_label || contact.email)];
-        if (contact.linkedin) {
-          buttons.push(h('a', { class: 'email-btn secondary', href: contact.linkedin, target: '_blank', rel: 'noopener' }, contact.linkedin_label || 'LinkedIn'));
-        }
-        setChildren('contact-buttons', buttons);
-      }
-
-      function renderFooter(footer) {
-        if (!footer) return;
-        setChildren('footer-text', footer.text);
-        setChildren('footer-links', (footer.links || []).map(link => {
-          const attrs = { href: link.url };
-          if (/^https?:/.test(link.url)) { attrs.target = '_blank'; attrs.rel = 'noopener'; }
-          return h('a', attrs, link.label);
-        }));
+      function renderColophon(footer, contact) {
+        const year = new Date().getFullYear();
+        setChildren('cv-colophon',
+          h('span', {}, (footer && footer.text) || `© ${year}`),
+          contact && contact.email ? h('a', { href: 'mailto:' + contact.email }, contact.email) : null
+        );
       }
 
       function render(data) {
         const home = (data.pages && data.pages.home) || {};
-        renderSiteMeta(data.site);
-        renderBrand(data.site && data.site.brand);
-        renderLabels(data.labels);
-        renderNav(data.page_nav);
-        renderHero(home.hero);
-        renderAbout(home.bio, home.about);
+        renderMasthead(data.site);
+        renderContactLine(data.contact, home.about);
+        renderProfile(home.bio);
         renderExperience(data.experience, data.earlier_career);
         renderExpertise(home.skill_groups);
         renderCredentials(data.credentials);
-        renderContact(data.contact);
-        renderFooter(data.footer);
+        renderColophon(data.footer, data.contact);
       }
 
       fetch('data.json', { cache: 'no-store' })

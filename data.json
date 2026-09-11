@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Jonathan González",
-    "tagline": "Technology & Security Architecture Leader",
+    "tagline": "Technology Leadership — CTO / CISO / Head of Architecture",
     "brand": "jonathangf.com",
     "description": "Personal website of Jonathan González — Technology & Security Architecture Leader (CTO / CISO / Head of Architecture)"
   },
@@ -97,7 +97,7 @@
       "company": "Amazon Web Services (AWS)",
       "period": "Jul 2020 – Jul 2023",
       "current": false,
-      "context": "Delivered security and transformation engagements for six tier-1 banks, a DeFi exchange and a national land registry across Europe.",
+      "context": "Delivered security and transformation engagements for multiple tier-1 banks, a DeFi exchange and a national land registry across Europe.",
       "highlights": [
         "Led security architecture and transformation work across EMEA, with selected engagements in the Americas, working with Directors, VPs and C-suite stakeholders on large-scale AWS migration and modernization programs.",
         "Managed a team of security specialists while sustaining >85% direct customer delivery utilization.",
@@ -146,11 +146,11 @@
       "European Commission Expert Evaluator"
     ],
     "education": [
-      { "degree": "MSc in Cybersecurity", "institution": "International University of La Rioja (UNIR)", "period": "2023–2024", "note": "Dissertation on AI-driven threat modeling in CI/CD pipelines; Grade: Sobresaliente (Spain's highest distinction)" },
+      { "degree": "MSc in Cybersecurity", "institution": "International University of La Rioja (UNIR)", "period": "2023–2024", "note": "Dissertation on AI-driven threat modeling in CI/CD pipelines; Grade: Sobresaliente \n( 4.0 GPA / A / First Class )" },
       { "degree": "BSc in Library & Information Science", "institution": "University Carlos III of Madrid", "period": "2010–2014" },
       { "degree": "University Expert in Security Management", "institution": "University Carlos III of Madrid", "period": "2009–2010" },
       { "degree": "Computer Science", "institution": "ITFP Nº 1 Gijón, Asturias", "period": "1996–1999" },
-      { "degree": "EU Microcredential — Deep Learning with NVIDIA-CUDA", "institution": "University of Oviedo", "period": "2026", "note": "From neural networks to Natural Language Processing (NLP)" }
+      { "degree": "EU Microcredential: Deep Learning with NVIDIA-CUDA", "institution": "University of Oviedo", "period": "2026", "note": "From neural networks to Natural Language Processing (NLP)" }
     ],
     "insights": [
       { "title": "Boardroom-ready", "description": "Certified across governance and cloud security, so risk decisions map cleanly to frameworks your auditors already recognize." },

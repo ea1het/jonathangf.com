@@ -7,20 +7,19 @@
   <meta name="description" content="File share — jonathangf.com" />
   <title>Files — jonathangf.com</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f7f8fa;
+      --bg: #f4f5f3;
       --surface: #ffffff;
-      --border: #dfe3e8;
-      --accent: #0f3854;
-      --accent2: #0e7c74;
-      --text: #1b232c;
-      --muted: #64707c;
-      --mono: 'IBM Plex Mono', monospace;
-      --sans: 'Syne', sans-serif;
+      --border: #dfe1dd;
+      --accent: #1f5f52;
+      --text: #1e2624;
+      --muted: #626b67;
+      --display: 'Source Serif 4', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -28,38 +27,24 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--mono);
+      font-family: var(--sans);
+      line-height: 1.6;
       min-height: 100vh;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Grid overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(15,56,84,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15,56,84,0.035) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
     /* ── HEADER ── */
     header {
       border-bottom: 1px solid var(--border);
       padding: 20px 0;
-      animation: fadeDown 0.6s ease both;
     }
     header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     .logo {
-      font-family: var(--sans);
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: -0.02em;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 1.15rem;
       text-decoration: none;
       color: var(--text);
     }
@@ -68,50 +53,47 @@
     nav a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
+      font-size: 0.85rem;
       transition: color 0.2s;
     }
     nav a:hover { color: var(--accent); }
 
     /* ── HERO ── */
-    .hero { padding: 60px 0 40px; animation: fadeUp 0.7s 0.1s ease both; }
+    .hero { padding: 56px 0 40px; }
     .hero-tag {
       color: var(--accent);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
     .hero h1 {
-      font-family: var(--sans);
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
+      font-family: var(--display);
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
     }
-    .hero p { color: #45505c; font-size: 0.9rem; line-height: 1.8; }
+    .hero p { color: var(--muted); font-size: 0.98rem; line-height: 1.75; max-width: 600px; }
 
     /* ── EXPLORER ── */
-    section#explorer { padding: 0 0 90px; animation: fadeUp 0.7s 0.2s ease both; }
+    section#explorer { padding: 32px 0 90px; border-top: 1px solid var(--border); margin-top: 8px; }
 
     .toolbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
-    .file-count { font-size: 0.78rem; color: var(--muted); }
+    .file-count { font-size: 0.85rem; color: var(--muted); }
     .file-search {
-      font-family: var(--mono);
-      font-size: 0.8rem;
+      font-family: var(--sans);
+      font-size: 0.88rem;
       color: var(--text);
       background: var(--surface);
       border: 1px solid var(--border);
+      border-radius: 4px;
       padding: 9px 12px;
       min-width: 220px;
       outline: none;
@@ -123,55 +105,57 @@
     .file-list {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      overflow: hidden;
     }
 
     .file-row {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 14px 20px;
+      padding: 16px 20px;
       border-bottom: 1px solid var(--border);
       cursor: pointer;
       transition: background 0.15s;
     }
     .file-row:last-child { border-bottom: none; }
-    .file-row:hover, .file-row:focus-visible { background: rgba(15,56,84,0.04); }
+    .file-row:hover, .file-row:focus-visible { background: rgba(31,95,82,0.05); }
     .file-row:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
 
-    .file-icon { font-size: 1rem; flex: 0 0 auto; }
+    .file-icon { font-size: 1.05rem; flex: 0 0 auto; }
     .file-name {
       flex: 1 1 auto;
-      font-size: 0.85rem;
+      font-size: 0.92rem;
       color: var(--text);
       overflow-wrap: anywhere;
     }
     .file-ext {
       flex: 0 0 auto;
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
       color: var(--accent);
-      background: rgba(15,56,84,0.07);
-      padding: 3px 8px;
+      background: rgba(31,95,82,0.09);
+      padding: 3px 9px;
+      border-radius: 3px;
     }
     .file-size {
       flex: 0 0 auto;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: var(--muted);
       min-width: 64px;
       text-align: right;
     }
     .file-actions { flex: 0 0 auto; display: flex; gap: 8px; }
     .file-actions button, .file-actions a {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.03em;
+      font-family: var(--sans);
+      font-size: 0.78rem;
       text-decoration: none;
       border: 1px solid var(--border);
+      border-radius: 4px;
       background: var(--surface);
       color: var(--text);
-      padding: 7px 12px;
+      padding: 7px 13px;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -181,7 +165,7 @@
       padding: 40px 20px;
       text-align: center;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 560px) {
@@ -194,7 +178,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(15, 22, 30, 0.55);
+      background: rgba(20, 26, 24, 0.55);
       display: none;
       align-items: center;
       justify-content: center;
@@ -205,13 +189,12 @@
     .modal {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
+      border-radius: 6px;
       width: 100%;
       max-width: 860px;
       max-height: 86vh;
       display: flex;
       flex-direction: column;
-      animation: fadeUp 0.25s ease both;
     }
     .modal-header {
       display: flex;
@@ -222,19 +205,20 @@
       border-bottom: 1px solid var(--border);
     }
     .modal-title {
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       font-weight: 600;
       overflow-wrap: anywhere;
     }
     .modal-header-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
     .modal-header-actions a, .modal-close {
-      font-family: var(--mono);
-      font-size: 0.7rem;
+      font-family: var(--sans);
+      font-size: 0.78rem;
       text-decoration: none;
       border: 1px solid var(--border);
+      border-radius: 4px;
       background: var(--surface);
       color: var(--text);
-      padding: 7px 12px;
+      padding: 7px 13px;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -244,31 +228,22 @@
     .modal-body pre {
       margin: 0;
       padding: 20px;
-      font-family: var(--mono);
-      font-size: 0.78rem;
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 0.82rem;
       line-height: 1.6;
       white-space: pre-wrap;
       word-break: break-word;
       color: var(--text);
     }
-    .modal-body .modal-status { padding: 40px 20px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    .modal-body .modal-status { padding: 40px 20px; text-align: center; color: var(--muted); font-size: 0.9rem; }
 
     /* ── FOOTER ── */
     footer { border-top: 1px solid var(--border); padding: 24px 0; }
     footer .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .footer-text { font-size: 0.7rem; color: var(--muted); }
+    .footer-text { font-size: 0.78rem; color: var(--muted); }
     .footer-links { display: flex; gap: 20px; }
-    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.7rem; transition: color 0.2s; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
@@ -278,6 +253,7 @@
       <a class="logo" href="../index.html">jonathangf<span>.</span>com</a>
       <nav>
         <a href="../index.html">Home</a>
+        <a href="../indexcv.html">Résumé</a>
       </nav>
     </div>
   </header>
