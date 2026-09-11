@@ -1,0 +1,6 @@
+# Local-only files, never to be pushed
+CV_JonathanGF.pdf
+*.pdf.local
+
+# OS / editor cruft
+.DS_Store

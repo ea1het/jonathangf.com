@@ -1,59 +1,55 @@
-# jonathangf — Open Data
+# jonathangf.com
 
-Personal website data as a public JSON endpoint.  
-No auth. No rate limits. Build whatever UI you want.
+Personal website. `index.html` is a static template that fetches `data.json`
+at runtime and renders every section from it — `data.json` is the single
+source of truth for the site's content, not a separate document.
 
-## Endpoint
+## How it works
 
-```
-https://YOUR_USERNAME.github.io/YOUR_REPO/data.json
-```
-
-## Usage
-
-### JavaScript
-```js
-const res = await fetch('https://YOUR_USERNAME.github.io/YOUR_REPO/data.json');
-const data = await res.json();
-
-console.log(data.pages.home.bio);
-console.log(data.pages.home.skills);
-console.log(data.pages.about.hobbies);
+```text
+index.html  →  fetch('data.json')  →  render() populates the page
 ```
 
-### Python
-```python
-import requests
-data = requests.get('https://YOUR_USERNAME.github.io/YOUR_REPO/data.json').json()
-print(data['pages']['home']['skills'])
-```
+Opening `index.html` directly from disk (`file://`) won't work: browsers
+block that fetch for local files. Serve the folder over HTTP instead, e.g.:
 
-### cURL
 ```bash
-curl https://YOUR_USERNAME.github.io/YOUR_REPO/data.json | jq .
+python3 -m http.server
 ```
+
+then open `http://localhost:8000/`.
+
+## Editing content
+
+To change anything on the page — copy, experience entries, skills,
+credentials, contact details — edit `data.json`. No HTML changes needed.
 
 ## Schema
 
 | Field | Description |
-|---|---|
-| `site` | Title, URL, description |
-| `nav` | Navigation links |
-| `pages.home` | Headline, bio, skills, hero image |
-| `pages.about` | Sections, hobbies, location, ham radio |
-| `blog.posts` | Blog posts array |
-| `meta` | Generation date and source |
+| --- | --- |
+| `site` | Title, tagline, brand wordmark, meta description |
+| `labels` | Section labels and small UI copy (`// about me`, "Earlier career", etc.) |
+| `page_nav` | Header navigation links |
+| `pages.home.hero` | Hero tag + heading |
+| `pages.home.bio` | About-section body copy (paragraphs separated by a blank line) |
+| `pages.home.about.location` | Location line under the bio |
+| `pages.home.skill_groups` | Expertise tags, grouped under category titles |
+| `experience` | Timeline entries (role, company, period, context, highlights) |
+| `earlier_career` | Condensed list of earlier roles |
+| `credentials` | Certifications, education, insights, languages |
+| `contact` | Contact heading, paragraph, email and LinkedIn (with button labels) |
+| `footer` | Footer text and links |
 
 ## Files
 
-```
+```text
 /
-├── index.html   ← API documentation landing page
-├── data.json    ← The actual data
-└── README.md    ← This file
+├── index.html   ← template + renderer (reads data.json)
+├── data.json    ← all site content
+└── README.md    ← this file
 ```
 
 ## License
 
-Data is free to use. Attribution appreciated but not required.  
 © [Jonathan González](https://jonathangf.com)

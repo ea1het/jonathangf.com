@@ -7,8 +7,8 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jonathan González — Enterprise Architect & CxO Strategic Advisor. Cybersecurity, technology and enterprise architecture strategy for the boardroom." />
-  <title>Jonathan González — Enterprise Architect & CxO Advisor</title>
+  <meta name="description" content="Jonathan González — Technology & security architecture leader (CTO / CISO / Head of Architecture). 25+ years across cybersecurity, cloud transformation (AWS, Azure) and critical 24/7 environments." />
+  <title>Jonathan González — Technology & Security Architecture Leader</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -22,6 +22,9 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       --accent2: #0e7c74;
       --text: #1b232c;
       --muted: #64707c;
+      --warn: #8a5a10;
+      --warn-bg: #fdf3e0;
+      --warn-border: #eccb8c;
       --mono: 'IBM Plex Mono', monospace;
       --sans: 'Syne', sans-serif;
     }
@@ -49,35 +52,42 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       z-index: 0;
     }
 
-    .wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 24px; }
+    .wrap { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; padding: 0 24px; }
 
     /* ── HEADER ── */
     header {
       border-bottom: 1px solid var(--border);
       padding: 20px 0;
       animation: fadeDown 0.6s ease both;
+      position: sticky;
+      top: 0;
+      background: rgba(247,248,250,0.92);
+      backdrop-filter: blur(6px);
+      z-index: 10;
     }
-    header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px 20px; }
     .logo {
       font-family: var(--sans);
       font-weight: 800;
       font-size: 1rem;
       letter-spacing: -0.02em;
+      white-space: nowrap;
     }
     .logo span { color: var(--accent); }
-    nav { display: flex; gap: 24px; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: flex-end; }
     nav a {
       color: var(--muted);
       text-decoration: none;
       font-size: 0.75rem;
       letter-spacing: 0.05em;
       transition: color 0.2s;
+      white-space: nowrap;
     }
     nav a:hover { color: var(--accent); }
 
     /* ── HERO ── */
     .hero {
-      padding: 90px 0 60px;
+      padding: 90px 0 40px;
       animation: fadeUp 0.7s 0.1s ease both;
     }
     .hero-tag {
@@ -87,27 +97,23 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       letter-spacing: 0.15em;
       text-transform: uppercase;
       margin-bottom: 20px;
+      min-height: 1.2em;
     }
     .hero h1 {
       font-family: var(--sans);
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-size: clamp(2rem, 6vw, 3.6rem);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.03em;
-      margin-bottom: 24px;
-    }
-    .hero h1 em { color: var(--accent); font-style: normal; }
-    .hero p {
-      color: #45505c;
-      font-size: 0.95rem;
-      line-height: 1.85;
-      max-width: 620px;
+      min-height: 1.1em;
     }
 
     /* ── SECTIONS ── */
     section { padding: 0 0 70px; }
     #about { animation: fadeUp 0.7s 0.2s ease both; }
+    #experience { animation: fadeUp 0.7s 0.25s ease both; }
     #expertise { animation: fadeUp 0.7s 0.3s ease both; }
+    #credentials { animation: fadeUp 0.7s 0.35s ease both; }
     #contact { padding-bottom: 90px; animation: fadeUp 0.7s 0.4s ease both; }
 
     .section-label {
@@ -124,7 +130,7 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       font-size: 0.9rem;
       line-height: 1.9;
       margin-bottom: 18px;
-      max-width: 660px;
+      max-width: 680px;
     }
     .bio p:last-child { margin-bottom: 0; }
 
@@ -136,9 +142,116 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       color: var(--muted);
       font-size: 0.78rem;
     }
-    .location::before { content: '📍'; font-size: 0.85rem; }
+    .location:not(:empty)::before { content: '📍'; font-size: 0.85rem; }
 
-    /* ── EXPERTISE TAGS ── */
+    /* ── TIMELINE (experience) ── */
+    .timeline {
+      position: relative;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding-left: 28px;
+      border-left: 2px solid var(--border);
+      margin-top: 8px;
+    }
+    .timeline-item { position: relative; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -34px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+    .timeline-item.current::before { background: var(--accent2); }
+    .timeline-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px 16px;
+    }
+    .timeline-head h3 {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .timeline-period {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .timeline-company {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .timeline-context {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-style: italic;
+      line-height: 1.6;
+      margin-top: 8px;
+      max-width: 640px;
+    }
+    .timeline-highlights {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .timeline-highlights li {
+      position: relative;
+      padding-left: 18px;
+      color: #45505c;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 660px;
+    }
+    .timeline-highlights li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+    }
+
+    .earlier-career { margin-top: 52px; }
+    .section-subtitle {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.72rem;
+      padding: 6px 12px;
+      line-height: 1.4;
+    }
+    .chip strong { color: var(--text); font-weight: 600; }
+
+    /* ── EXPERTISE ── */
+    .expertise-group { margin-bottom: 32px; }
+    .expertise-group:last-child { margin-bottom: 0; }
+    .expertise-group h3 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 12px;
+    }
     .tag-grid {
       display: flex;
       flex-wrap: wrap;
@@ -155,6 +268,58 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
     }
     .tag:hover { border-color: var(--accent); color: var(--accent); }
 
+    /* ── CREDENTIALS ── */
+    .cert-chip-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .cert-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent2);
+      color: var(--text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 8px 14px;
+    }
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .credentials-col h3 {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .credential-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .credential-list li {
+      border-left: 2px solid var(--border);
+      padding-left: 14px;
+    }
+    .credential-list strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .credential-list span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+    .languages {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+    }
+    .languages strong { color: var(--text); }
+
     /* ── CONTACT ── */
     .contact-box {
       background: var(--surface);
@@ -168,6 +333,7 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       font-weight: 700;
       margin-bottom: 16px;
       letter-spacing: -0.01em;
+      min-height: 1.2em;
     }
     .contact-box p {
       color: #45505c;
@@ -176,6 +342,7 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       max-width: 560px;
       margin-bottom: 28px;
     }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
     .email-btn {
       display: inline-flex;
       align-items: center;
@@ -191,6 +358,17 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       transition: all 0.2s;
     }
     .email-btn:hover { background: var(--accent2); transform: translateY(-1px); }
+    .email-btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--border);
+    }
+    .email-btn.secondary:hover {
+      background: var(--surface);
+      border-color: var(--accent);
+      color: var(--accent2);
+      transform: translateY(-1px);
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -205,7 +383,7 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       gap: 12px;
     }
     .footer-text { font-size: 0.7rem; color: var(--muted); }
-    .footer-links { display: flex; gap: 20px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
     .footer-links a {
       color: var(--muted);
       text-decoration: none;
@@ -213,6 +391,28 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--accent); }
+
+    /* ── DATA LOAD ERROR BANNER ── */
+    .load-error {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 20;
+      background: var(--warn-bg);
+      border-top: 1px solid var(--warn-border);
+    }
+    .load-error .wrap {
+      padding: 14px 24px;
+      color: var(--warn);
+      font-size: 0.78rem;
+      line-height: 1.6;
+    }
+    .load-error code {
+      background: rgba(0,0,0,0.06);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -222,76 +422,98 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
       from { opacity: 0; transform: translateY(-10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .wrap { padding: 0 18px; }
+      header { padding: 16px 0; }
+      nav { gap: 8px 16px; justify-content: flex-start; width: 100%; }
+      .hero { padding: 56px 0 30px; }
+      .hero-tag { margin-bottom: 14px; font-size: 0.72rem; }
+      section { padding-bottom: 52px; }
+      .contact-box { padding: 24px; }
+      .credentials-grid { grid-template-columns: 1fr; gap: 32px; }
+      .timeline { padding-left: 20px; }
+      .timeline-item::before { left: -26px; width: 8px; height: 8px; }
+      .timeline-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .btn-row { flex-direction: column; align-items: stretch; }
+      .email-btn { justify-content: center; }
+      footer .wrap { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <div class="wrap">
-      <div class="logo">jonathangf<span>.</span>com</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#expertise">Expertise</a>
-        <a href="/files">File share</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="logo" id="brand"></div>
+      <nav id="site-nav"></nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="wrap">
-        <div class="hero-tag">// welcome</div>
-        <h1>Hi, I'm Jonathan González.<br/><em>Enterprise Architect for the<br/>C-suite.</em></h1>
-        <p>Thank you for stopping by. I'm a CxO and IT strategist with 25+ years of experience across enterprise architecture, cybersecurity, technology and physical protection, able of turning complex risk and architecture challenges into decisions your board can act on.</p>
+        <div class="hero-tag" id="hero-tag"></div>
+        <h1 id="hero-heading"></h1>
       </div>
     </section>
 
     <section id="about">
       <div class="wrap">
-        <div class="section-label">// about me</div>
-        <div class="bio">
-          <p>I've spent the last decade-plus advising organisations, from SMBs to blue-chip enterprises, on cybersecurity, digital transformation, cloud strategy and enterprise architecture. My work sits at the intersection of technology and business: I speak both fluently, which means the strategies I build are ones your teams can actually execute.</p>
-          <p>I've led cross-functional teams as a contractor, a permanent hire and a solo consultant running my own company. That range gives me a practical, no-nonsense perspective on what it takes to protect operations, financial stability and corporate reputation, digitally and physically.</p>
+        <div class="section-label" id="label-about"></div>
+        <div class="bio" id="about-bio"></div>
+        <div class="location" id="about-location"></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-label" id="label-experience"></div>
+        <ol class="timeline" id="experience-timeline"></ol>
+
+        <div class="earlier-career">
+          <div class="section-subtitle" id="earlier-career-label"></div>
+          <div class="chip-grid" id="earlier-career-chips"></div>
         </div>
-        <div class="location">Spain, working remotely or hybrid with clients worldwide</div>
       </div>
     </section>
 
     <section id="expertise">
       <div class="wrap">
-        <div class="section-label">// expertise</div>
-        <div class="tag-grid">
-          <span class="tag">Cybersecurity</span>
-          <span class="tag">Enterprise Architecture</span>
-          <span class="tag">Strategic Planning</span>
-          <span class="tag">TOGAF</span>
-          <span class="tag">M&A</span>
-          <span class="tag">P&L</span>
-          <span class="tag">Transformation</span>
-          <span class="tag">NIST CSF</span>
-          <span class="tag">PCI-DSS</span>
-          <span class="tag">NIS2</span>
-          <span class="tag">ISO 27001</span>
-          <span class="tag">IEC 62443</span>
-          <span class="tag">Cloud</span>
-          <span class="tag">CI/CD</span>
-          <span class="tag">Microservices</span>
-          <span class="tag">Serverless</span>
-          <span class="tag">DevSecOps</span>
-          <span class="tag">Zero Trust</span>
-          <span class="tag">Data Protection</span>
+        <div class="section-label" id="label-expertise"></div>
+        <div id="expertise-groups"></div>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <div class="wrap">
+        <div class="section-label" id="label-credentials"></div>
+
+        <div class="cert-chip-grid" id="credentials-certs"></div>
+
+        <div class="credentials-grid">
+          <div class="credentials-col">
+            <h3 id="credentials-education-heading"></h3>
+            <ul class="credential-list" id="credentials-education"></ul>
+          </div>
+          <div class="credentials-col">
+            <h3 id="credentials-insights-heading"></h3>
+            <ul class="credential-list" id="credentials-insights"></ul>
+          </div>
         </div>
+
+        <div class="languages" id="credentials-languages"></div>
       </div>
     </section>
 
     <section id="contact">
       <div class="wrap">
-        <div class="section-label">// get in touch</div>
+        <div class="section-label" id="label-contact"></div>
         <div class="contact-box">
-          <h2>Let's talk.</h2>
-          <p>If you're facing a complex security, architecture or transformation challenge and want a strategic partner who can bridge the gap between technology and the boardroom, I'd love to hear from you.</p>
-          <a class="email-btn" href="mailto:info@jonathangf.com">✉ Contact me</a>
+          <h2 id="contact-heading"></h2>
+          <p id="contact-paragraph"></p>
+          <div class="btn-row" id="contact-buttons"></div>
         </div>
       </div>
     </section>
@@ -299,12 +521,197 @@ Avpr gb xabj lbh yvxr gb qvir qrrc. Zr gbb. Qb lbh unir fbzrguvat vagrerfgvat sb
 
   <footer>
     <div class="wrap">
-      <div class="footer-text">2000-2026 © Jonathan González</div>
-      <div class="footer-links">
-        <a href="mailto:info@jonathangf.com">Email</a>
-        <a href="https://ea1het.com">EA1HET</a>
-      </div>
+      <div class="footer-text" id="footer-text"></div>
+      <div class="footer-links" id="footer-links"></div>
     </div>
   </footer>
+
+  <div class="load-error" id="load-error" hidden>
+    <div class="wrap">
+      ⚠ Couldn't load <code>data.json</code>. If you're viewing this file directly from disk, browsers block that fetch for security reasons — serve the folder over HTTP instead, e.g. <code>python3 -m http.server</code>, then reload.
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // Tiny hyperscript-style DOM builder: h('div', {class:'x'}, 'text', childNode, [moreChildren])
+      function h(tag, props, ...kids) {
+        const node = document.createElement(tag);
+        if (props) {
+          for (const [key, value] of Object.entries(props)) {
+            if (value == null || value === false) continue;
+            if (key === 'class') node.className = value;
+            else node.setAttribute(key, value);
+          }
+        }
+        for (const kid of kids.flat(Infinity)) {
+          if (kid == null || kid === false) continue;
+          node.appendChild(kid.nodeType ? kid : document.createTextNode(String(kid)));
+        }
+        return node;
+      }
+
+      function setChildren(id, ...children) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = '';
+        for (const child of children.flat(Infinity)) {
+          if (child == null || child === false) continue;
+          el.appendChild(child.nodeType ? child : document.createTextNode(String(child)));
+        }
+      }
+
+      function renderSiteMeta(site) {
+        if (!site) return;
+        if (site.title && site.tagline) document.title = `${site.title} — ${site.tagline}`;
+        if (site.description) {
+          const metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc) metaDesc.setAttribute('content', site.description);
+        }
+      }
+
+      function renderBrand(brand) {
+        if (!brand) return;
+        const lastDot = brand.lastIndexOf('.');
+        if (lastDot === -1) { setChildren('brand', brand); return; }
+        setChildren('brand', brand.slice(0, lastDot), h('span', {}, '.'), brand.slice(lastDot + 1));
+      }
+
+      function renderLabels(labels) {
+        if (!labels) return;
+        const sections = labels.sections || {};
+        setChildren('label-about', sections.about);
+        setChildren('label-experience', sections.experience);
+        setChildren('label-expertise', sections.expertise);
+        setChildren('label-credentials', sections.credentials);
+        setChildren('label-contact', sections.contact);
+        setChildren('earlier-career-label', labels.earlier_career);
+        setChildren('credentials-education-heading', labels.credentials_education);
+        setChildren('credentials-insights-heading', labels.credentials_insights);
+      }
+
+      function renderNav(items) {
+        setChildren('site-nav', (items || []).map(item => h('a', { href: item.href }, item.label)));
+      }
+
+      function renderHero(hero) {
+        if (!hero) return;
+        setChildren('hero-tag', hero.tag);
+        setChildren('hero-heading', hero.heading);
+      }
+
+      function renderAbout(bio, about) {
+        const paragraphs = (bio || '').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+        setChildren('about-bio', paragraphs.map(p => h('p', {}, p)));
+        setChildren('about-location', about && about.location);
+      }
+
+      function renderExperience(experience, earlierCareer) {
+        setChildren('experience-timeline', (experience || []).map(job => {
+          const li = h('li', { class: 'timeline-item' + (job.current ? ' current' : '') },
+            h('div', { class: 'timeline-head' },
+              h('h3', {}, job.role),
+              h('span', { class: 'timeline-period' }, job.period)
+            ),
+            h('div', { class: 'timeline-company' }, job.company),
+            h('p', { class: 'timeline-context' }, job.context),
+            h('ul', { class: 'timeline-highlights' }, (job.highlights || []).map(item => h('li', {}, item)))
+          );
+          return li;
+        }));
+
+        setChildren('earlier-career-chips', (earlierCareer || []).map(job =>
+          h('span', { class: 'chip' },
+            h('strong', {}, job.company),
+            ` · ${job.role} · ${job.period}`
+          )
+        ));
+      }
+
+      function renderExpertise(groups) {
+        setChildren('expertise-groups', (groups || []).map(group =>
+          h('div', { class: 'expertise-group' },
+            h('h3', {}, group.title),
+            h('div', { class: 'tag-grid' }, (group.items || []).map(item => h('span', { class: 'tag' }, item)))
+          )
+        ));
+      }
+
+      function renderCredentials(credentials) {
+        if (!credentials) return;
+        setChildren('credentials-certs', (credentials.certifications || []).map(cert =>
+          h('span', { class: 'cert-chip' }, cert)
+        ));
+
+        setChildren('credentials-education', (credentials.education || []).map(edu => {
+          const meta = [edu.institution, edu.period].filter(Boolean).join(' · ');
+          return h('li', {},
+            h('strong', {}, edu.degree),
+            h('span', {}, meta),
+            edu.note ? h('span', {}, edu.note) : null
+          );
+        }));
+
+        setChildren('credentials-insights', (credentials.insights || []).map(insight =>
+          h('li', {},
+            h('strong', {}, insight.title),
+            h('span', {}, insight.description)
+          )
+        ));
+
+        setChildren('credentials-languages', (credentials.languages || []).map(lang =>
+          h('span', {}, h('strong', {}, lang.language), ` · ${lang.level}`)
+        ));
+      }
+
+      function renderContact(contact) {
+        if (!contact) return;
+        setChildren('contact-heading', contact.heading);
+        setChildren('contact-paragraph', contact.paragraph);
+        const buttons = [h('a', { class: 'email-btn', href: 'mailto:' + contact.email }, contact.email_label || contact.email)];
+        if (contact.linkedin) {
+          buttons.push(h('a', { class: 'email-btn secondary', href: contact.linkedin, target: '_blank', rel: 'noopener' }, contact.linkedin_label || 'LinkedIn'));
+        }
+        setChildren('contact-buttons', buttons);
+      }
+
+      function renderFooter(footer) {
+        if (!footer) return;
+        setChildren('footer-text', footer.text);
+        setChildren('footer-links', (footer.links || []).map(link => {
+          const attrs = { href: link.url };
+          if (/^https?:/.test(link.url)) { attrs.target = '_blank'; attrs.rel = 'noopener'; }
+          return h('a', attrs, link.label);
+        }));
+      }
+
+      function render(data) {
+        const home = (data.pages && data.pages.home) || {};
+        renderSiteMeta(data.site);
+        renderBrand(data.site && data.site.brand);
+        renderLabels(data.labels);
+        renderNav(data.page_nav);
+        renderHero(home.hero);
+        renderAbout(home.bio, home.about);
+        renderExperience(data.experience, data.earlier_career);
+        renderExpertise(home.skill_groups);
+        renderCredentials(data.credentials);
+        renderContact(data.contact);
+        renderFooter(data.footer);
+      }
+
+      fetch('data.json', { cache: 'no-store' })
+        .then(res => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(render)
+        .catch(err => {
+          console.error('Could not load data.json:', err);
+          const banner = document.getElementById('load-error');
+          if (banner) banner.hidden = false;
+        });
+    })();
+  </script>
 </body>
 </html>

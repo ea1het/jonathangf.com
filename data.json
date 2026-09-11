@@ -1,70 +1,181 @@
 {
   "site": {
     "title": "Jonathan González",
-    "url": "https://jonathangf.com",
-    "description": "Personal website of Jonathan González — Founder, CxO & Strategic Advisor"
+    "tagline": "Technology & Security Architecture Leader",
+    "brand": "jonathangf.com",
+    "description": "Personal website of Jonathan González — Technology & Security Architecture Leader (CTO / CISO / Head of Architecture)"
   },
-  "meta": {
-    "generated_at": "2026-03-11",
-    "source": "https://jonathangf.com",
-    "note": "Data for jonathangf.com. Use it however you like. Build your own UI! :)"
+  "labels": {
+    "sections": {
+      "about": "// about me",
+      "experience": "// experience",
+      "expertise": "// expertise",
+      "credentials": "// credentials & education",
+      "contact": "// get in touch"
+    },
+    "earlier_career": "Earlier career",
+    "credentials_education": "Education",
+    "credentials_insights": "What this means for you"
   },
+  "page_nav": [
+    { "label": "About", "href": "#about" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Expertise", "href": "#expertise" },
+    { "label": "Credentials", "href": "#credentials" },
+    { "label": "File share", "href": "/files" },
+    { "label": "Contact", "href": "#contact" }
+  ],
   "pages": {
     "home": {
-      "slug": "home",
-      "url": "https://jonathangf.com/",
-      "headline": "Hi there, welcome to my personal web site",
-      "intro": "Thank you for visiting me. My name is Jonathan González.",
-      "bio": "I'm CxO & strategic IT (enterprise) architect with 25+ years' experience in technology, cybersecurity and physical protection. Expert at developing and executing holistic security strategies, spanning digital and physical worlds.\n\nProven leader of cross-functional teams, adept at using modern technologies with a focus on proactive defense. I guide teams to harness cybersecurity, open and electronic intelligence, AI and scalable technology solutions to protect operations, financial stability and corporate reputation.\n\nIn my career I've found inspiration, and gathered rich background, working on information security, cybersecurity, networking & system administration roles, both at the technology and at the strategy levels. Personally, I consider, with hard work, I could managed to help multiple organisations, and that really gives me satisfaction and a bunch of confidence for new challenges.\n\nI had the opportunity to work in all kind of organisations, small ones, SMBs and blue chip, as contractor, permanent on payroll and as solo-entrepreneur, running my own company. This experiences granted me the necessary background to guide others and provide insightful conversations.",
-      "closing": "I'm looking forward to working with you next! 😉",
-      "skills": [
-        "Cybersecurity", "Enterprise Architecture", "Strategic Planning",
-        "TOGAF", "NIST", "PCI-DSS", "NIS2", "ISO 27001",
-        "AWS", "CI/CD", "Microservices", "Serverless"
-      ]
-    },
-    "about": {
-      "slug": "about",
-      "url": "https://jonathangf.com/about/",
-      "headline": "Welcome to my life!",
-      "sections": [
+      "bio": "Technology and security architecture leader with 25 years of experience across transformation, cybersecurity, cloud and critical 24/7 environments. Established Schneider Electric's first coordinated global cloud security strategy, securing funding and delivering a multi-project program. At AWS, led security transformation engagements across EMEA, with multi-application mass migrations delivered in short periods of time. Currently owns cloud security architecture for a 24/7 IoT environment serving millions customers in several countries.",
+      "hero": {
+        "tag": "// technology leadership — CTO / CISO / Head of Architecture",
+        "heading": "Hi, I'm Jonathan González."
+      },
+      "about": {
+        "location": "Based in Spain — Working hybrid across the EU, remote-friendly worldwide"
+      },
+      "skill_groups": [
         {
-          "title": "Professional",
-          "content": "I've been working remotely in IT consulting since 2012, specializing in cybersecurity, transformation, architecture, cloud management and strategic planning. Before I ever got my first startup off the ground, I actually built three business cases that taught me how to break down big, messy problems into practical, real-world solutions. So if you ever need someone who speaks both 'techie' and 'business,' I've got that covered.\n\nI work best when I can be remote, stay in touch with teammates online and skip the idea of an 'office for office's sake.' All this contributes to what I consider a 'mental break', something that permits creativity and great work delivery. I love LoFi beats playing softly in the background, headphones on, and a podcast queued up — anything from tech deep-dives to history or travel stories."
+          "title": "Strategy & Governance",
+          "items": ["Security Strategy & Governance", "Enterprise Architecture", "Risk & Compliance", "Identity & Access Management", "Team Leadership", "IoT/OT & Edge"]
         },
         {
-          "title": "Personal",
-          "content": "Close to me, most folks just call me Jon, Jona, Jonan, Johnny, Jony… I decided to settle down and I'm living in a tiny village up in northern Spain. I'm a pretty honest person, and I'll always tell it like it is, even if being straightforward isn't the easiest path.\n\nAs a fun fact, I'm a licensed ham radio operator (EA1HET). Ham radio is almost about tinkering with radios and wave propagation. I'm a total 'maker' at heart — give me a Raspberry Pi, a handful of sensors and a soldering iron and I'm in heaven, especially when it involves amateur radio or IoT projects.\n\nWhen I'm not knee-deep in code or architecting a secure solution, I'm probably out hiking a 10 km trail, cycling through the hills, swimming laps or practicing some martial arts. I love literally all kinds of sports, but nothing beats a long walk in nature for clearing my head. I try to make choices that respect the environment and travelling is a big part of my life — I love seeing new places and meeting new people."
+          "title": "Frameworks & Compliance",
+          "items": ["TOGAF", "SABSA", "ArchiMate", "C4", "BPMN", "UML", "ISO 27001", "NIS2", "DORA", "IEC 62443", "PCI-DSS"]
+        },
+        {
+          "title": "Cloud & Platforms",
+          "items": ["AWS", "Azure", "Microservices", "Event-driven architecture", "APIs", "CI/CD", "Serverless", "DevSecOps", "Zero Trust"]
+        },
+        {
+          "title": "Security Platforms",
+          "items": ["Wiz", "Lacework", "SailPoint", "Okta", "CyberArk", "Palo Alto", "Zscaler", "Splunk"]
+        },
+        {
+          "title": "AI Architecture & Governance",
+          "items": ["Hybrid & local-first AI", "NVIDIA-CUDA", "PyTorch", "AWS Bedrock", "SageMaker", "RAG & agentic systems", "LLMOps / MLOps", "AI security & governance"]
+        },
+        {
+          "title": "Programming",
+          "items": ["Python", "Rust", "C / C++", "Bash"]
         }
-      ],
-      "location": "Northern Spain",
-      "hobbies": [
-        "Ham radio operator (EA1HET)",
-        "Maker / electronics tinkering",
-        "Raspberry Pi & IoT projects",
-        "Hiking",
-        "Cycling",
-        "Swimming",
-        "Martial arts",
-        "Travelling"
-      ],
-      "ham_radio": {
-        "callsign": "EA1HET",
-        "url": "https://ea1het.com"
-      }
+      ]
     }
   },
-  "blog": {
-    "url": "https://jonathangf.com/blog/",
-    "posts": []
+  "experience": [
+    {
+      "role": "Enterprise Architect – Security",
+      "company": "Verisure",
+      "period": "Aug 2025 – Present",
+      "current": true,
+      "context": "Millions of monitored customers across 18 countries in Europe and South America; 24/7 alarm receiving centers.",
+      "highlights": [
+        "Cloud security architecture across AWS and Azure, setting requirements, reference patterns and technical direction for enterprise cloud initiatives.",
+        "Led the CNAPP selection: defined the assessment criteria and competitive test plan across vendors.",
+        "Drive security architecture for identity, resilience and the modernization of alarm-processing services spanning cloud, edge and on-premises systems.",
+        "Define security architectures for 24/7 monitoring and IoT platforms serving millions of connected devices with low-latency real-time processing."
+      ]
+    },
+    {
+      "role": "Principal Architect & Founder",
+      "company": "Safe Byte Labs",
+      "period": "Jul 2023 – Aug 2025",
+      "current": false,
+      "context": "Independent architecture practice across transformation, cybersecurity, domain architecture and industrial IoT. Cryptographic product IP sold.",
+      "highlights": [
+        "Payments organization (Germany): Designed an AWS infrastructure migration strategy including a new landing zone and Lacework CNAPP, then executed the migration of multiple apps and hundreds of microservices to AWS in 9 months.",
+        "Energy organization (Spain): Redesigned the architecture service model supporting a large-scale Azure-to-AWS migration, improving how architecture supported cloud agility, decision-making and migration delivery.",
+        "Energy organization (UK): Acted as cloud architect and IoT subject-matter expert on industrial IoT initiatives, including smart electricity-metering projects and their cloud integration with corporate apps.",
+        "Airline (Spain): Domain architect for Customer Experience, Loyalty and Payments; defined the target architecture adopted as the reference for three delivery teams.",
+        "Industrial MSSP (Spain): Designed an AI-assisted anomaly-detection architecture combining an eBPF network and process analyzer with local AI models running at the workload. First-pass detection and assessment report to a local management station; only selected findings escalate to more capable models for deeper correlation. The architecture balanced detection depth, latency, privacy, bandwidth, resilience and cloud AI cost.",
+        "Designed and developed a cryptographic product for distributed data-masking; IP later acquired."
+      ]
+    },
+    {
+      "role": "Security Team Leader – Global Financial Services",
+      "company": "Amazon Web Services (AWS)",
+      "period": "Jul 2020 – Jul 2023",
+      "current": false,
+      "context": "Delivered security and transformation engagements for six tier-1 banks, a DeFi exchange and a national land registry across Europe.",
+      "highlights": [
+        "Led security architecture and transformation work across EMEA, with selected engagements in the Americas, working with Directors, VPs and C-suite stakeholders on large-scale AWS migration and modernization programs.",
+        "Managed a team of security specialists while sustaining >85% direct customer delivery utilization.",
+        "Led an internal technical upskilling program for two consecutive years, coordinating dozens of professionals through a 12-week development program while maintaining customer delivery and team-lead responsibilities.",
+        "Owned the security architecture on a competitive bid for a tier-1 European bank's enterprise data lake, resolving critical security and data-protection objections and contributing to AWS winning the evaluation.",
+        "For a top-tier African bank, coordinated several outsourced engineers during a replatforming migration that moved dozens of applications to AWS in weeks using the AWS migration framework.",
+        "Delivered security architecture across cryptography, data protection, microsegmentation, data migration, data platforms, MLOps and early generative-AI use cases, translating regulatory and security requirements into executable technical roadmaps and implementation plans."
+      ]
+    },
+    {
+      "role": "Cloud Security Architect (CCoE) & Digital Risk Leader",
+      "company": "Schneider Electric",
+      "period": "Sep 2017 – Jun 2020",
+      "current": false,
+      "context": "Global cloud security transformation spanning 100+ countries and hundreds of internal development teams.",
+      "highlights": [
+        "Established Schneider Electric's first coordinated global cloud security strategy from within the Cloud Center of Excellence, beginning with an enterprise gap assessment and defining the strategy, charter and delivery program.",
+        "Built the business case, secured funding and translated the strategy into a portfolio of multiple security projects across AWS and Azure, leading execution with a team of up to four people.",
+        "Established common requirements for identity, data protection, governance, CSPM and workload protection, aligned with ISO 27001 and applicable NIS requirements while supporting the agility of the wider cloud transformation.",
+        "Defined KPIs and management dashboards to track execution, project progress and security posture, reporting periodically to senior leadership; drastic reduction in reported incidents over 24 months."
+      ]
+    }
+  ],
+  "earlier_career": [
+    { "company": "DXC Technology", "role": "Cloud Architect", "period": "2016–2017" },
+    { "company": "Sestaferia Digital WISP", "role": "Site Reliability Engineer", "period": "2015–2016" },
+    { "company": "Sweetspot Intelligence", "role": "Security Analyst", "period": "2014–2015" },
+    { "company": "Alisys", "role": "Cloud Product Manager", "period": "2012–2014" },
+    { "company": "Indra", "role": "Security Consultant", "period": "2007–2012" },
+    { "company": "Matchmind", "role": "Functional Security Architect", "period": "2006–2007" },
+    { "company": "Accenture", "role": "Security Team Leader", "period": "2004–2006" },
+    { "company": "BT", "role": "Network Security Engineer", "period": "2003–2004" },
+    { "company": "IBM", "role": "IT Auditor", "period": "2003" },
+    { "company": "Intecno", "role": "Security Consultant", "period": "2002–2003" },
+    { "company": "Atos", "role": "Security R&D Engineer", "period": "2001–2002" },
+    { "company": "Comverse Technology", "role": "Systems Engineer", "period": "2000–2001" },
+    { "company": "Portel", "role": "Web Developer", "period": "1999–2000" }
+  ],
+  "credentials": {
+    "certifications": [
+      "CISM",
+      "ISMS Forum CCSP",
+      "BSI ISO 27001 Lead Auditor",
+      "AWS Security & Solutions Architect",
+      "Director de Seguridad (regulated license)",
+      "European Commission Expert Evaluator"
+    ],
+    "education": [
+      { "degree": "MSc in Cybersecurity", "institution": "International University of La Rioja (UNIR)", "period": "2023–2024", "note": "Dissertation on AI-driven threat modeling in CI/CD pipelines; Grade: Sobresaliente (Spain's highest distinction)" },
+      { "degree": "BSc in Library & Information Science", "institution": "University Carlos III of Madrid", "period": "2010–2014" },
+      { "degree": "University Expert in Security Management", "institution": "University Carlos III of Madrid", "period": "2009–2010" },
+      { "degree": "Computer Science", "institution": "ITFP Nº 1 Gijón, Asturias", "period": "1996–1999" },
+      { "degree": "EU Microcredential — Deep Learning with NVIDIA-CUDA", "institution": "University of Oviedo", "period": "2026", "note": "From neural networks to Natural Language Processing (NLP)" }
+    ],
+    "insights": [
+      { "title": "Boardroom-ready", "description": "Certified across governance and cloud security, so risk decisions map cleanly to frameworks your auditors already recognize." },
+      { "title": "Evaluated by peers", "description": "Serving as a European Commission Expert Evaluator keeps my thinking benchmarked against EU-wide research and innovation programs." },
+      { "title": "Academically current", "description": "An MSc dissertation on AI threat modeling and a deep-learning microcredential keep the AI-governance advice grounded, not theoretical." }
+    ],
+    "languages": [
+      { "language": "Spanish", "level": "Native" },
+      { "language": "English", "level": "Full professional proficiency" }
+    ]
   },
   "contact": {
-    "url": "https://jonathangf.com/contact/"
+    "heading": "Let's talk.",
+    "paragraph": "If you're facing a complex security, architecture or transformation challenge and want a strategic partner who can bridge the gap between technology and the boardroom, I'd love to hear from you.",
+    "email": "info@jonathangf.com",
+    "email_label": "✉ Contact me",
+    "linkedin": "https://www.linkedin.com/in/jonathan-gf",
+    "linkedin_label": "in LinkedIn"
   },
-  "nav": [
-    { "label": "Home", "url": "https://jonathangf.com/" },
-    { "label": "About", "url": "https://jonathangf.com/about/" },
-    { "label": "Blog", "url": "https://jonathangf.com/blog/" },
-    { "label": "Contact", "url": "https://jonathangf.com/contact/" }
-  ]
+  "footer": {
+    "text": "2000-2026 © Jonathan González",
+    "links": [
+      { "label": "Email", "url": "mailto:info@jonathangf.com" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/jonathan-gf" },
+      { "label": "EA1HET", "url": "https://ea1het.com" }
+    ]
+  }
 }
