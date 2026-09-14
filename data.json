@@ -142,7 +142,7 @@
     {
       "title": "Local Hybrid AI",
       "tag": "Open Source — MPL-2.0 license",
-      "description": "Open-source reference architecture for local-first hybrid AI, designed around data sovereignty, security and controlled cloud escalation. Combines local inference and model routing with policy-driven access to cloud AI when additional capability or compute is required, incorporating security, observability, governance, RAG and agentic workflows.",
+      "description": "Reference architecture for local-first hybrid AI, designed around data sovereignty, security and controlled cloud escalation. Combines local inference and model routing with policy-driven access to cloud AI when additional capability or compute is required, incorporating security, observability, governance, tools, RAG and agentic workflows.",
       "links": [
         { "label": "GitHub project repository: Local Hybrid AI", "url": "https://github.com/ea1het/local_hybrid_ai" },
         { "label": "LinkedIn article: Local hybrid AI: be sovereign with your data", "url": "https://www.linkedin.com/pulse/local-hybrid-ai-sovereign-your-data-jonathan-gonz%C3%A1lez-msc-ea1het--zhmoe/" },
