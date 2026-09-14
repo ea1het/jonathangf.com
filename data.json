@@ -142,7 +142,7 @@
     {
       "title": "Local Hybrid AI",
       "tag": "Open Source — MPL-2.0 license",
-      "description": "The project objective is to demonstrate that it is in fact possible for anyone — individual or organization — to run your own full-fledged local hybrid AI and start being more sovereign with your data.",
+      "description": "The project's objective is to demonstrate that it is in fact possible for anyone, individual or organization, running your own full-fledged local hybrid AI and being sovereign with your data.",
       "links": [
         { "label": "GitHub project repository: Local Hybrid AI", "url": "https://github.com/ea1het/local_hybrid_ai" },
         { "label": "LinkedIn article: Local hybrid AI: be sovereign with your data", "url": "https://www.linkedin.com/pulse/local-hybrid-ai-sovereign-your-data-jonathan-gonz%C3%A1lez-msc-ea1het--zhmoe/" },
