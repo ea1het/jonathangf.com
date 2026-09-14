@@ -215,6 +215,44 @@
     .earlier-row .who strong { font-weight: 600; }
     .earlier-row .when { color: var(--muted); font-size: 0.82rem; white-space: nowrap; }
 
+    /* ── PROJECTS ── */
+    .project-tag {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 3px;
+    }
+    .project-links {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .project-links li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      max-width: 660px;
+    }
+    .project-links li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .project-links a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+    .project-links a:hover { color: var(--accent); border-color: var(--accent); }
+
     /* ── EXPERTISE ── */
     .expertise-group { margin-bottom: 26px; }
     .expertise-group:last-child { margin-bottom: 0; }
@@ -353,6 +391,11 @@
       </div>
     </section>
 
+    <section id="section-projects">
+      <div class="section-title" id="label-projects">Projects</div>
+      <div id="cv-projects"></div>
+    </section>
+
     <section id="section-expertise">
       <div class="section-title" id="label-expertise">Areas of Expertise</div>
       <div id="cv-expertise"></div>
@@ -484,6 +527,21 @@
         ));
       }
 
+      function renderProjects(projects) {
+        setChildren('cv-projects', (projects || []).map(project =>
+          h('div', { class: 'entry' },
+            h('div', { class: 'entry-head' },
+              h('span', { class: 'entry-role' }, project.title)
+            ),
+            project.tag ? h('div', { class: 'project-tag' }, project.tag) : null,
+            project.description ? h('div', { class: 'entry-context' }, project.description) : null,
+            h('ul', { class: 'project-links' }, (project.links || []).map(link =>
+              h('li', {}, h('a', { href: link.url, target: '_blank', rel: 'noopener' }, link.label))
+            ))
+          )
+        ));
+      }
+
       function renderExpertise(groups) {
         setChildren('cv-expertise', (groups || []).map(group =>
           h('div', { class: 'expertise-group' },
@@ -526,6 +584,7 @@
         renderContactLine(data.contact, home.about);
         renderProfile(home.bio);
         renderExperience(data.experience, data.earlier_career);
+        renderProjects(data.projects);
         renderExpertise(home.skill_groups);
         renderCredentials(data.credentials);
         renderColophon(data.footer, data.contact);

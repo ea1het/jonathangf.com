@@ -9,6 +9,7 @@
     "sections": {
       "about": "// about me",
       "experience": "// experience",
+      "projects": "// projects",
       "expertise": "// expertise",
       "credentials": "// credentials & education",
       "contact": "// get in touch"
@@ -20,6 +21,7 @@
   "page_nav": [
     { "label": "About", "href": "#about" },
     { "label": "Experience", "href": "#experience" },
+    { "label": "Projects", "href": "#projects" },
     { "label": "Expertise", "href": "#expertise" },
     { "label": "Credentials", "href": "#credentials" },
     { "label": "File share", "href": "/files" },
@@ -135,6 +137,19 @@
     { "company": "Atos", "role": "Security R&D Engineer", "period": "2001–2002" },
     { "company": "Comverse Technology", "role": "Systems Engineer", "period": "2000–2001" },
     { "company": "Portel", "role": "Web Developer", "period": "1999–2000" }
+  ],
+  "projects": [
+    {
+      "title": "Local Hybrid AI",
+      "tag": "Open Source — MPL-2.0 license",
+      "description": "The project objective is to demonstrate that it is in fact possible for anyone — individual or organization — to run your own full-fledged local hybrid AI and start being more sovereign with your data.",
+      "links": [
+        { "label": "GitHub project repository: Local Hybrid AI", "url": "https://github.com/ea1het/local_hybrid_ai" },
+        { "label": "LinkedIn article: Local hybrid AI: be sovereign with your data", "url": "https://www.linkedin.com/pulse/local-hybrid-ai-sovereign-your-data-jonathan-gonz%C3%A1lez-msc-ea1het--zhmoe/" },
+        { "label": "LinkedIn article: AI sovereignty is not owning the model", "url": "https://www.linkedin.com/pulse/ai-sovereignty-owning-model-jonathan-gonz%C3%A1lez-msc-ea1het--m6hoe/" },
+        { "label": "LinkedIn research document (in Spanish): Arquitectura híbrida de IA, soberanía del dato y seguridad", "url": "https://www.linkedin.com/feed/update/urn:li:activity:7494922584531177472/" }
+      ]
+    }
   ],
   "credentials": {
     "certifications": [
