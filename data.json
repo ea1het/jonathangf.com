@@ -141,13 +141,14 @@
   "projects": [
     {
       "title": "Local Hybrid AI",
-      "tag": "Open Source — MPL-2.0 license",
-      "description": "Reference architecture for local-first hybrid AI, designed around data sovereignty, security and controlled cloud escalation. Combines local inference and model routing with policy-driven access to cloud AI when additional capability or compute is required, incorporating security, observability, governance, tools, RAG and agentic workflows.",
-      "links": [
-        { "label": "GitHub project repository: Local Hybrid AI", "url": "https://github.com/ea1het/local_hybrid_ai" },
-        { "label": "LinkedIn article: Local hybrid AI: be sovereign with your data", "url": "https://www.linkedin.com/pulse/local-hybrid-ai-sovereign-your-data-jonathan-gonz%C3%A1lez-msc-ea1het--zhmoe/" },
-        { "label": "LinkedIn article: AI sovereignty is not owning the model", "url": "https://www.linkedin.com/pulse/ai-sovereignty-owning-model-jonathan-gonz%C3%A1lez-msc-ea1het--m6hoe/" },
-        { "label": "LinkedIn research document (in Spanish): Arquitectura híbrida de IA, soberanía del dato y seguridad", "url": "https://www.linkedin.com/feed/update/urn:li:activity:7494922584531177472/" }
+      "license": "MPL-2.0",
+      "role": "Creator",
+      "repo": { "label": "Local Hybrid AI", "url": "https://github.com/ea1het/local_hybrid_ai" },
+      "description": "Reference architecture for local-first hybrid AI focused on data sovereignty, security and policy-controlled cloud escalation. Combines local inference, model routing, RAG and agentic workflows with security, observability and governance.",
+      "writing": [
+        { "label": "Local hybrid AI: be sovereign with your data", "url": "https://www.linkedin.com/pulse/local-hybrid-ai-sovereign-your-data-jonathan-gonz%C3%A1lez-msc-ea1het--zhmoe/" },
+        { "label": "AI sovereignty is not owning the model", "url": "https://www.linkedin.com/pulse/ai-sovereignty-owning-model-jonathan-gonz%C3%A1lez-msc-ea1het--m6hoe/" },
+        { "label": "Arquitectura híbrida de IA, soberanía del dato y seguridad (in Spanish)", "url": "https://www.linkedin.com/feed/update/urn:li:activity:7494922584531177472/" }
       ]
     }
   ],

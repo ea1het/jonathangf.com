@@ -216,42 +216,27 @@
     .earlier-row .when { color: var(--muted); font-size: 0.82rem; white-space: nowrap; }
 
     /* ── PROJECTS ── */
-    .project-tag {
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-top: 3px;
-    }
-    .project-links {
-      list-style: none;
-      margin-top: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .project-links li {
-      position: relative;
-      padding-left: 20px;
-      font-size: 0.96rem;
-      line-height: 1.7;
+    .project-meta {
+      font-size: 1.02rem;
+      line-height: 1.6;
       max-width: 660px;
     }
-    .project-links li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.65em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    .project-links a {
+    .project-meta a,
+    .project-writing a {
       color: var(--ink);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
     }
-    .project-links a:hover { color: var(--accent); border-color: var(--accent); }
+    .project-meta a:hover,
+    .project-writing a:hover { color: var(--accent); border-color: var(--accent); }
+    .project-writing {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 660px;
+    }
+    .project-writing strong { color: var(--ink); }
 
     /* ── EXPERTISE ── */
     .expertise-group { margin-bottom: 26px; }
@@ -392,7 +377,7 @@
     </section>
 
     <section id="section-projects">
-      <div class="section-title" id="label-projects">Projects</div>
+      <div class="section-title" id="label-projects">Selected Open-Source Project</div>
       <div id="cv-projects"></div>
     </section>
 
@@ -528,18 +513,29 @@
       }
 
       function renderProjects(projects) {
-        setChildren('cv-projects', (projects || []).map(project =>
-          h('div', { class: 'entry' },
-            h('div', { class: 'entry-head' },
-              h('span', { class: 'entry-role' }, project.title)
-            ),
-            project.tag ? h('div', { class: 'project-tag' }, project.tag) : null,
+        setChildren('cv-projects', (projects || []).map(project => {
+          const metaParts = [h('strong', {}, project.title)];
+          if (project.license) metaParts.push(`Open Source (${project.license})`);
+          if (project.role) metaParts.push(project.role);
+          if (project.repo) {
+            metaParts.push(h('span', {},
+              h('strong', {}, 'GitHub'), ': ',
+              h('a', { href: project.repo.url, target: '_blank', rel: 'noopener' }, project.repo.label)
+            ));
+          }
+          const meta = metaParts.flatMap((part, i) => i === 0 ? [part] : [' · ', part]);
+
+          const writing = project.writing || [];
+          const writingLinks = writing.flatMap((link, i) =>
+            (i === 0 ? [] : [' · ']).concat([h('a', { href: link.url, target: '_blank', rel: 'noopener' }, link.label)])
+          );
+
+          return h('div', { class: 'entry' },
+            h('div', { class: 'project-meta' }, meta),
             project.description ? h('div', { class: 'entry-context' }, project.description) : null,
-            h('ul', { class: 'project-links' }, (project.links || []).map(link =>
-              h('li', {}, h('a', { href: link.url, target: '_blank', rel: 'noopener' }, link.label))
-            ))
-          )
-        ));
+            writing.length ? h('div', { class: 'project-writing' }, h('strong', {}, 'Selected writing'), ': ', writingLinks, '.') : null
+          );
+        }));
       }
 
       function renderExpertise(groups) {
