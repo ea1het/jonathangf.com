@@ -74,7 +74,7 @@
       "context": "Millions of monitored customers across 18 countries in Europe and South America; 24/7 alarm receiving centers.",
       "highlights": [
         "Cloud security architecture across AWS and Azure, setting requirements, reference patterns and technical direction for enterprise cloud initiatives.",
-        "Led the CNAPP selection: defined the assessment criteria and competitive test plan across vendors.",
+        "Led the CNAPP selection (RFI, RFQ): defined the assessment criteria and competitive test plan across vendors.",
         "Drive security architecture for identity, resilience and the modernization of alarm-processing services spanning cloud, edge and on-premises systems.",
         "Define security architectures for 24/7 monitoring and IoT platforms serving millions of connected devices with low-latency real-time processing.",
         "Additional strategic assignments across AI, cloud, privacy and risk governance, subject to confidentiality constraints."
@@ -92,6 +92,7 @@
         "Energy organization (UK): Acted as cloud architect and IoT subject-matter expert on industrial IoT initiatives, including smart electricity-metering projects and their cloud integration with corporate apps.",
         "Airline (Spain): Domain architect for Customer Experience, Loyalty and Payments; defined the target architecture adopted as the reference for three delivery teams.",
         "Industrial MSSP (Spain): Designed an AI-assisted anomaly-detection architecture combining an eBPF network and process analyzer with local AI models running at the workload. First-pass detection and assessment report to a local management station; only selected findings escalate to more capable models for deeper correlation. The architecture balanced detection depth, latency, privacy, bandwidth, resilience and cloud AI cost.",
+        "Cosmetics industry (Spain): Designed and developed backend services for product formulation calculations and EU regulatory product registration.",
         "Designed and developed a cryptographic product for distributed data-masking; IP later acquired."
       ]
     },
@@ -129,7 +130,7 @@
     { "company": "Sestaferia Digital WISP", "role": "Site Reliability Engineer", "period": "2015–2016" },
     { "company": "Sweetspot Intelligence", "role": "Security Analyst", "period": "2014–2015" },
     { "company": "Alisys", "role": "Cloud Product Manager", "period": "2012–2014" },
-    { "company": "Indra", "role": "Security Consultant", "period": "2007–2012" },
+    { "company": "Indra", "role": "Security Consultant (HLS)", "period": "2007–2012" },
     { "company": "Matchmind", "role": "Functional Security Architect", "period": "2006–2007" },
     { "company": "Accenture", "role": "Security Team Leader", "period": "2004–2006" },
     { "company": "BT", "role": "Network Security Engineer", "period": "2003–2004" },
