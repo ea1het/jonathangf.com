@@ -1,9 +1,9 @@
 {
   "site": {
     "title": "Jonathan González",
-    "tagline": "Technology Leadership — CTO / CISO / Head of Architecture",
+    "tagline": "Technology Leadership — CTO · CISO · Head of Architecture",
     "brand": "jonathangf.com",
-    "description": "Personal website of Jonathan González — Technology & Security Architecture Leader (CTO / CISO / Head of Architecture)"
+    "description": "Personal website of Jonathan González — Technology Leader - CTO · CISO · Head of Architecture"
   },
   "labels": {
     "sections": {
@@ -29,9 +29,9 @@
   ],
   "pages": {
     "home": {
-      "bio": "Technology and security architecture leader with 25 years of experience across transformation, cybersecurity, cloud and critical 24/7 environments. Established Schneider Electric's first coordinated global cloud security strategy, securing funding and delivering a multi-project program. At AWS, led security transformation engagements across EMEA, with multi-application mass migrations delivered in short periods of time. Currently owns Enterprise Security Architecture & Cloud Security for a 24/7 IoT environment serving millions customers in several countries.",
+      "bio": "Technology, security and architecture leader with 25 years of experience shaping strategy, architecture and transformation across cybersecurity, cloud and critical 24/7 environments. At Schneider Electric, identified the need for a coordinated global approach to cloud security, defined the strategy and program behind it, secured executive funding and led a multi-project program across AWS and Azure; reported incidents fell 30% over 24 months. At AWS, led security transformation engagements across EMEA, including a multi-application migration delivered in tight schedules. Currently leads Enterprise Security Architecture & Cloud Security for a 24/7 IoT environment serving 6M+ customers across 18 countries.",
       "hero": {
-        "tag": "// technology leadership — CTO / CISO / Head of Architecture",
+        "tag": "// technology leadership — CTO · CISO · Head of Architecture",
         "heading": "Hi, I'm Jonathan González."
       },
       "about": {
@@ -71,12 +71,12 @@
       "company": "Verisure",
       "period": "Aug 2025 – Present",
       "current": true,
-      "context": "Millions of monitored customers across 18 countries in Europe and South America; 24/7 alarm receiving centers.",
+      "context": "Many millions of monitored customers across tenths of countries in Europe and South America; 24/7 alarm receiving centers.",
       "highlights": [
-        "Cloud security architecture across AWS and Azure, setting requirements, reference patterns and technical direction for enterprise cloud initiatives.",
+        "Own cloud security architecture across AWS and Azure, setting requirements, reference patterns and technical direction for enterprise cloud initiatives.",
         "Led the CNAPP selection (RFI, RFQ): defined the assessment criteria and competitive test plan across vendors.",
         "Drive security architecture for identity, resilience and the modernization of alarm-processing services spanning cloud, edge and on-premises systems.",
-        "Define security architectures for 24/7 monitoring and IoT platforms serving millions of connected devices with low-latency real-time processing.",
+        "Define security architectures for 24/7 monitoring and IoT platforms serving millions of connected devices with low-latency real-time processing",
         "Additional strategic assignments across AI, cloud, privacy and risk governance, subject to confidentiality constraints."
       ]
     },
@@ -105,9 +105,9 @@
       "highlights": [
         "Led security architecture and transformation work across EMEA, with selected engagements in the Americas, working with Directors, VPs and C-suite stakeholders on large-scale AWS migration and modernization programs.",
         "Managed a team of security specialists while sustaining >85% direct customer delivery utilization.",
-        "Led an internal technical upskilling program for two consecutive years, coordinating dozens of professionals through a 12-week development program while maintaining customer delivery and team-lead responsibilities.",
+        "Led an internal technical upskilling program for two consecutive years, coordinating tenths of professionals through a 12-week development program while maintaining customer delivery and team-lead responsibilities.",
         "Owned the security architecture on a competitive bid for a tier-1 European bank's enterprise data lake, resolving critical security and data-protection objections and contributing to AWS winning the evaluation.",
-        "For a top-tier African bank, coordinated several outsourced engineers during a replatforming migration that moved dozens of applications to AWS in weeks using the AWS migration framework.",
+        "For a top-tier African bank, coordinated several outsourced engineers during a replatforming migration that moved tenths of applications to AWS in weeks using the AWS migration framework.",
         "Delivered security architecture across cryptography, data protection, microsegmentation, data migration, data platforms, MLOps and early generative-AI use cases, translating regulatory and security requirements into executable technical roadmaps and implementation plans."
       ]
     },
