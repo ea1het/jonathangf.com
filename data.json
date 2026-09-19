@@ -29,13 +29,14 @@
   ],
   "pages": {
     "home": {
-      "bio": "Technology, security and architecture leader with 25 years of experience shaping strategy, architecture and transformation across cybersecurity, cloud and critical 24/7 environments. At Schneider Electric, identified the need for a coordinated global approach to cloud security, defined the strategy and program behind it, secured executive funding and led a multi-project program across AWS and Azure; reported incidents fell 30% over 24 months. At AWS, led security transformation engagements across EMEA, including a multi-application migration delivered in tight schedules. Currently leads Enterprise Security Architecture & Cloud Security for a 24/7 IoT environment serving 6M+ customers across 18 countries.",
+      "bio": "Technology, security and architecture leader with 25 years of experience shaping strategy, architecture and transformation across cybersecurity, cloud and critical 24/7 environments. Experienced in setting technology direction, shaping investment priorities, establishing governance and operating models, and aligning senior stakeholders around executable transformation roadmaps. At Schneider Electric, built the global cloud security strategy, secured €nM in executive funding and led a N-project transformation program, with reported incidents falling 30% over 24 months. At AWS, led security and cloud transformation engagements for major regulated organizations across EMEA. Today, lead Enterprise Security Architecture & Cloud Security for a 24/7 IoT environment serving nM+ customers across N countries.",
       "hero": {
         "tag": "// technology leadership — CTO · CISO · Head of Architecture",
         "heading": "Hi, I'm Jonathan González."
       },
       "about": {
-        "location": "Based in Spain — Working hybrid across the EU, remote-friendly worldwide"
+        "location": "Based in Spain — Working hybrid across the EU, remote-friendly worldwide",
+        "confidential_note": "Public version; selected details have been redacted or omitted for confidentiality reasons"
       },
       "skill_groups": [
         {
@@ -44,7 +45,7 @@
         },
         {
           "title": "Frameworks & Compliance",
-          "items": ["TOGAF", "SABSA", "ArchiMate", "C4", "BPMN", "UML", "ISO 27001", "NIS2", "DORA", "IEC 62443", "PCI-DSS"]
+          "items": ["TOGAF", "SABSA", "ArchiMate", "C4", "Ardoq", "BPMN", "UML", "ISO 27001", "NIS2", "DORA", "IEC 62443", "PCI-DSS"]
         },
         {
           "title": "Cloud & Platforms",
@@ -56,7 +57,7 @@
         },
         {
           "title": "AI Architecture & Governance",
-          "items": ["Hybrid & local-first AI", "NVIDIA-CUDA", "PyTorch", "AWS Bedrock", "SageMaker", "RAG & agentic systems", "LLMOps / MLOps", "AI security & governance"]
+          "items": ["Hybrid & local-first AI", "NVIDIA-CUDA", "PyTorch", "AWS Bedrock", "LangChain / LangGraph", "SageMaker", "RAG & agentic systems", "LLMOps / MLOps", "AI security & governance"]
         },
         {
           "title": "Programming",
@@ -71,10 +72,10 @@
       "company": "Verisure",
       "period": "Aug 2025 – Present",
       "current": true,
-      "context": "Many millions of monitored customers across tenths of countries in Europe and South America; 24/7 alarm receiving centers.",
+      "context": "Many millions of customers | Tenths of countries | AWS & Azure | AI | 24/7 mission-critical IoT | Cloud, edge & on-prem.",
       "highlights": [
         "Own cloud security architecture across AWS and Azure, setting requirements, reference patterns and technical direction for enterprise cloud initiatives.",
-        "Led the CNAPP selection (RFI, RFQ): defined the assessment criteria and competitive test plan across vendors.",
+        "Led the CNAPP selection (RFI, RFQ): defined the assessment criteria and competitive evaluation across three vendors; the selected platform is now being deployed across the cloud estate.",
         "Drive security architecture for identity, resilience and the modernization of alarm-processing services spanning cloud, edge and on-premises systems.",
         "Define security architectures for 24/7 monitoring and IoT platforms serving millions of connected devices with low-latency real-time processing",
         "Additional strategic assignments across AI, cloud, privacy and risk governance, subject to confidentiality constraints."
@@ -85,7 +86,7 @@
       "company": "Safe Byte Labs",
       "period": "Jul 2023 – Aug 2025",
       "current": false,
-      "context": "Independent architecture practice across transformation, cybersecurity, domain architecture and industrial IoT. Cryptographic product IP sold.",
+      "context": "Founded and ran an independent architecture practice delivering technology transformation, cloud, cybersecurity and industrial IoT engagements across financial services, energy, aviation and industry. Created a cryptographic data-protection product whose IP was acquired.",
       "highlights": [
         "Payments organization (Germany): Designed an AWS infrastructure migration strategy including a new landing zone and Lacework CNAPP, then executed the migration of multiple apps and hundreds of microservices to AWS in 9 months.",
         "Energy organization (Spain): Redesigned the architecture service model supporting a large-scale Azure-to-AWS migration, improving how architecture supported cloud agility, decision-making and migration delivery.",
@@ -101,13 +102,13 @@
       "company": "Amazon Web Services (AWS)",
       "period": "Jul 2020 – Jul 2023",
       "current": false,
-      "context": "Delivered security and transformation engagements for multiple tier-1 banks, a DeFi exchange and a national land registry across Europe.",
+      "context": "EMEA | Multiple tier-1 banks + regulated enterprises | C-suite stakeholders | 4-person specialist team.",
       "highlights": [
         "Led security architecture and transformation work across EMEA, with selected engagements in the Americas, working with Directors, VPs and C-suite stakeholders on large-scale AWS migration and modernization programs.",
-        "Managed a team of security specialists while sustaining >85% direct customer delivery utilization.",
-        "Led an internal technical upskilling program for two consecutive years, coordinating tenths of professionals through a 12-week development program while maintaining customer delivery and team-lead responsibilities.",
+        "Led and developed a four-person security specialist team across concurrent customer transformation engagements, sustaining >85% direct customer delivery utilization.",
+        "Built and led a 12-week technical capability program for two consecutive years, upskilling 50+ professionals while maintaining customer delivery and team-lead responsibilities.",
         "Owned the security architecture on a competitive bid for a tier-1 European bank's enterprise data lake, resolving critical security and data-protection objections and contributing to AWS winning the evaluation.",
-        "For a top-tier African bank, coordinated several outsourced engineers during a replatforming migration that moved tenths of applications to AWS in weeks using the AWS migration framework.",
+        "For a top-tier African bank, coordinated five partner engineers during a replatforming migration that moved tenths of applications to AWS in five weeks using the AWS migration framework.",
         "Delivered security architecture across cryptography, data protection, microsegmentation, data migration, data platforms, MLOps and early generative-AI use cases, translating regulatory and security requirements into executable technical roadmaps and implementation plans."
       ]
     },
@@ -116,12 +117,12 @@
       "company": "Schneider Electric",
       "period": "Sep 2017 – Jun 2020",
       "current": false,
-      "context": "Global cloud security transformation spanning 100+ countries and hundreds of internal development teams.",
+      "context": "Global | 100+ countries | Multi-million euro program | Multiple initiatives | AWS & Azure | 4-person core team.",
       "highlights": [
         "Established Schneider Electric's first coordinated global cloud security strategy from within the Cloud Center of Excellence, beginning with an enterprise gap assessment and defining the strategy, charter and delivery program.",
         "Built the business case, secured funding and translated the strategy into a portfolio of multiple security projects across AWS and Azure, leading execution with a team of up to four people.",
         "Established common requirements for identity, data protection, governance, CSPM and workload protection, aligned with ISO 27001 and applicable NIS requirements while supporting the agility of the wider cloud transformation.",
-        "Defined KPIs and management dashboards to track execution, project progress and security posture, reporting periodically to senior leadership; drastic reduction in reported incidents over 24 months."
+        "Defined KPIs and management dashboards to track execution, project progress and security posture, reporting periodically to senior leadership; 30% reduction in reported incidents over 24 months."
       ]
     }
   ],
@@ -131,7 +132,7 @@
     { "company": "Sweetspot Intelligence", "role": "Security Analyst", "period": "2014–2015" },
     { "company": "Alisys", "role": "Cloud Product Manager", "period": "2012–2014" },
     { "company": "Indra", "role": "Security Consultant (HLS)", "period": "2007–2012" },
-    { "company": "Matchmind", "role": "Functional Security Architect", "period": "2006–2007" },
+    { "company": "Matchmind", "role": "Functional Banking Security Architect", "period": "2006–2007" },
     { "company": "Accenture", "role": "Security Team Leader", "period": "2004–2006" },
     { "company": "BT", "role": "Network Security Engineer", "period": "2003–2004" },
     { "company": "IBM", "role": "IT Auditor", "period": "2003" },
@@ -160,7 +161,7 @@
       "ISMS Forum CCSP",
       "BSI ISO 27001 Lead Auditor",
       "AWS Security & Solutions Architect",
-      "Director de Seguridad (regulated license)",
+      "Director de Seguridad (Spanish Ministry of the Interior regulated license)",
       "European Commission Expert Evaluator"
     ],
     "education": [
