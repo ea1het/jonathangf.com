@@ -165,6 +165,7 @@
       "European Commission Expert Evaluator"
     ],
     "education": [
+      { "degree": "Executive MBA", "institution": "University of Oviedo", "period": "2026–2027" },
       { "degree": "MSc in Cybersecurity", "institution": "International University of La Rioja (UNIR)", "period": "2023–2024", "note": "Dissertation on AI-driven threat modeling in CI/CD pipelines; Grade: Sobresaliente \n( 4.0 GPA / A / First Class )" },
       { "degree": "BSc in Library & Information Science", "institution": "University Carlos III of Madrid", "period": "2010–2014" },
       { "degree": "University Expert in Security Management", "institution": "University Carlos III of Madrid", "period": "2009–2010" },
