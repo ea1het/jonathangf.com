@@ -41,7 +41,7 @@
       "skill_groups": [
         {
           "title": "Strategy & Governance",
-          "items": ["Security Strategy & Governance", "Enterprise Architecture", "Risk & Compliance", "Identity & Access Management", "Team Leadership", "IoT/OT & Edge"]
+          "items": ["Technology Strategy & Transformation", "Enterprise Architecture & Governance", "Security Strategy & Cyber Risk", "Cloud & Platform Transformation", "AI Architecture & Governance", "Risk, Compliance & Resilience (ISO 27001, NIS2, DORA, IEC 62443)", "IoT/OT & Edge", "Leadership & Program Delivery"]
         },
         {
           "title": "Frameworks & Compliance",
@@ -49,15 +49,15 @@
         },
         {
           "title": "Cloud & Platforms",
-          "items": ["AWS", "Azure", "Microservices", "Event-driven architecture", "APIs", "CI/CD", "Serverless", "DevSecOps", "Zero Trust"]
+          "items": ["AWS", "Azure", "Microservices", "Event-driven architecture", "APIs", "CI/CD", "Serverless"]
         },
         {
-          "title": "Security Platforms",
-          "items": ["Wiz", "Lacework", "SailPoint", "Okta", "CyberArk", "Palo Alto", "Zscaler", "Splunk"]
+          "title": "Security Platforms & Governance",
+          "items": ["DevSecOps", "Zero Trust", "Wiz", "Lacework", "SailPoint", "Okta", "CyberArk", "Palo Alto", "Zscaler", "Splunk"]
         },
         {
           "title": "AI Architecture & Governance",
-          "items": ["Hybrid & local-first AI", "NVIDIA-CUDA", "PyTorch", "AWS Bedrock", "LangChain / LangGraph", "SageMaker", "RAG & agentic systems", "LLMOps / MLOps", "AI security & governance"]
+          "items": ["Hybrid & local-first AI architectures", "NVIDIA-CUDA", "PyTorch", "AWS Bedrock", "LangChain / LangGraph", "SageMaker", "RAG & agentic systems", "LLMOps / MLOps", "AI security & governance"]
         },
         {
           "title": "Programming",
