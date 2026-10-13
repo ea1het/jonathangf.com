@@ -17,7 +17,10 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 FILES_DIR = os.path.join(ROOT, "files")
 MANIFEST = os.path.join(FILES_DIR, "manifest.json")
 
-SKIP = {"manifest.json", ".DS_Store"}
+SKIP = {"manifest.json", ".DS_Store", ".gitignore", ".gitattributes", ".nojekyll"}
+
+# Web documents are never listed (e.g. files/index.html, the explorer itself).
+WEB_EXTENSIONS = {".html", ".htm", ".xhtml", ".xht", ".shtml", ".shtm", ".mht", ".mhtml"}
 
 
 def main():
@@ -27,6 +30,8 @@ def main():
     entries = []
     for name in sorted(os.listdir(FILES_DIR), key=str.lower):
         if name in SKIP or name.startswith("."):
+            continue
+        if os.path.splitext(name)[1].lower() in WEB_EXTENSIONS:
             continue
         path = os.path.join(FILES_DIR, name)
         if os.path.isfile(path):
