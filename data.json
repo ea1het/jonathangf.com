@@ -99,10 +99,10 @@
       "company": "Amazon Web Services (AWS)",
       "period": "Jul 2020 – Jul 2023",
       "current": false,
-      "context": "EMEA | Multiple tier-1 banks + regulated enterprises | C-suite stakeholders | 12-person cross-country specialist team.",
+      "context": "EMEA | Multiple tier-1 banks + regulated enterprises | C-suite stakeholders | X-person cross-country specialist team.",
       "highlights": [
         "Led security and cloud transformation engagements for major regulated organizations across EMEA, working directly with Directors, VPs and C-suite stakeholders on migration, modernization and risk decisions.",
-        "Led and developed a twelve-person security specialist team across concurrent customer transformation engagements.",
+        "Led and developed a X-person security specialist team across concurrent customer transformation engagements.",
         "Built and led a 12-week technical capability program for two consecutive years, upskilling 50+ professionals while maintain-ing customer delivery responsibilities.",
         "Owned the security architecture for a competitive tier-1 European banking opportunity, resolving critical security and data-protection objections and contributing to AWS winning the evaluation.",
         "Led security delivery for a top-tier African bank replatforming, coordinating five partner engineers to migrate N applications to AWS in five weeks using the AWS migration framework.",
@@ -114,10 +114,10 @@
       "company": "Schneider Electric",
       "period": "Sep 2017 – Jun 2020",
       "current": false,
-      "context": "Global | 100+ countries | Multi-million EUR program | Multiple initiatives | AWS & Azure | 8-person core team + security champions.",
+      "context": "Global | 100+ countries | Multi-million EUR program | Multiple initiatives | AWS & Azure | X-person core team + security champions.",
       "highlights": [
         "Identified the absence of a coordinated global cloud security model and established Schneider Electric's first enterprise cloud security strategy, charter and transformation roadmap.",
-        "Built the business case, secured €nM in executive funding and translated the strategy into a portfolio of N initiatives, leading execution with a core team of four people.",
+        "Built the business case, secured €nM in executive funding and translated the strategy into a portfolio of N initiatives, leading execution with a core team of X people plus several security champions.",
         "Established common requirements for identity, data protection, governance, CSPM and workload protection, aligned with ISO 27001 and applicable NIS requirements while supporting the agility of the wider cloud transformation.",
         "Defined KPIs and management dashboards to track execution, project progress and security posture, reporting periodically to senior leadership; 30% reduction in reported incidents over 24 months."
       ]
