@@ -163,11 +163,11 @@
     ],
     "education": [
       { "degree": "Executive MBA", "institution": "University of Oviedo", "period": "2026–2027" },
+      { "degree": "EU Microcredential: Deep Learning with NVIDIA-CUDA", "institution": "University of Oviedo", "period": "2026", "note": "From neural networks to Natural Language Processing (NLP)" },
       { "degree": "MSc in Cybersecurity", "institution": "International University of La Rioja (UNIR)", "period": "2023–2024", "note": "Dissertation on AI-driven threat modeling in CI/CD pipelines; Grade: Sobresaliente \n( 4.0 GPA / A / First Class )" },
       { "degree": "BSc in Library & Information Science", "institution": "University Carlos III of Madrid", "period": "2010–2014" },
       { "degree": "University Expert in Security Management", "institution": "University Carlos III of Madrid", "period": "2009–2010" },
-      { "degree": "Computer Science", "institution": "ITFP Nº 1 Gijón, Asturias", "period": "1996–1999" },
-      { "degree": "EU Microcredential: Deep Learning with NVIDIA-CUDA", "institution": "University of Oviedo", "period": "2026", "note": "From neural networks to Natural Language Processing (NLP)" }
+      { "degree": "Computer Science", "institution": "ITFP Nº 1 Gijón, Asturias", "period": "1996–1999" }
     ],
     "languages": [
       { "language": "Spanish", "level": "Native" },
